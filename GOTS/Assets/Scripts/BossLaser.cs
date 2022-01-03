@@ -1,0 +1,25 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BossLaser : MonoBehaviour
+{
+    public int LaserSpeed;
+    public float LifeTime;
+    public GameObject laser;
+
+    void Update()
+    {
+        if (Input.GetKey(KeyCode.Space))
+        {
+            GameObject Laser = Instantiate(laser, transform.position, Quaternion.identity);
+            Rigidbody LaserRb = Laser.GetComponent<Rigidbody>();
+
+            // íeë¨ÇÕé©óRÇ…ê›íË
+            LaserRb.AddForce(transform.forward * LaserSpeed);
+
+            // ÇTïbå„Ç…ñCíeÇîjâÛÇ∑ÇÈ
+            Destroy(Laser, LifeTime);
+        }
+    }
+}
