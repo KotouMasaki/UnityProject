@@ -19,19 +19,10 @@ public class TargetController : MonoBehaviour
         {"left", false },
     };
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.z < 1510)
-        {
-            transform.Translate(0f, 0f, Speed);
-        }
+        transform.Translate(0f, 0f, Speed);
         
         move["up"] = Input.GetKey(KeyCode.W);
         move["down"] = Input.GetKey(KeyCode.S);

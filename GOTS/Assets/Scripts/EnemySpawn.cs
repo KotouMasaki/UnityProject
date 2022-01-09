@@ -4,19 +4,51 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public float Interval = 10.0f;
+    public float FastTime;
+    public float Interval;
+    private float second1;
+    private float second2;
     public GameObject Enemy;
+    public GameObject player;
+    public GameObject firingPoint;
+    public bool FastSpawn = true;
 
-    // Update is called once per frame
-    void Update()
+    void Start()
     {
-        StartCoroutine(Spawn());
+        transform.LookAt(player.transform);
+        player = GameObject.Find("Player");
     }
 
-    IEnumerator Spawn()
+    void Update()
     {
-        yield return new WaitForSeconds(Interval);
-        GameObject Enemys = Instantiate(Enemy, this.transform.position,this.transform.rotation);
-        
+        transform.LookAt(player.transform);
+
+        second1 = second1 + Time.deltaTime;
+        //Debug.Log(second1);
+        if (second1 > FastTime)
+        {
+            if(FastSpawn == true)
+            {
+                Spawn();
+                //Debug.Log("“GoŒ»");
+                FastSpawn = false;
+            }
+
+            second2 = second2 + Time.deltaTime;
+            //Debug.Log(second2);
+            if (second2 > Interval)
+            {
+                Spawn();
+                //Debug.Log("“GoŒ»");
+                second2 = 0;
+            }
+        }
+    }
+
+    public void Spawn()
+    {
+        //“G‚ğ¶¬‚·‚éêŠ‚ğæ“¾
+        Vector3 laserPosition = firingPoint.transform.position;
+        GameObject Enemys = Instantiate(Enemy, this.transform.position, this.transform.rotation);
     }
 }

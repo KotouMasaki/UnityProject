@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class PlayerHPBar : MonoBehaviour
+public class PlayerHP : MonoBehaviour
 {
     [SerializeField] float maxHp = 90.0f;
     [SerializeField] float currentHp;
@@ -14,7 +15,7 @@ public class PlayerHPBar : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //Sliderを満タンにする。
+        //Sliderを半分にする。
         slider.value = 0.5f;
         
         Debug.Log("Start currentHp : " + currentHp);
@@ -25,7 +26,7 @@ public class PlayerHPBar : MonoBehaviour
     {
         count += 1;
 
-        if(count % 90 == 0)
+        if(count % 120 == 0)
         {
             currentHp = currentHp - 1;
             Debug.Log("After currentHp : " + currentHp);
@@ -62,6 +63,8 @@ public class PlayerHPBar : MonoBehaviour
         if(currentHp <= 0)
         {
             Debug.Log("HPO");
+            SceneManager.LoadScene("GameOverScene");
+
         }
     }
 }

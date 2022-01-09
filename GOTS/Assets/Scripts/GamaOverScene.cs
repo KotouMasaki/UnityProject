@@ -1,8 +1,10 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
-public class BossMove : MonoBehaviour
+
+public class GamaOverScene : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -13,6 +15,9 @@ public class BossMove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(0f, 0f, -0.125f);
+        if (Input.GetKey(KeyCode.Space))
+        {
+            SceneManager.LoadScene("GameScene");
+        }
     }
 }

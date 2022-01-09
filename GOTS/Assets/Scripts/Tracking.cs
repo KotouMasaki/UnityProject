@@ -10,7 +10,6 @@ public class Tracking : MonoBehaviour
     private Transform target;
     private float period = 3.0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         Destroy(this.gameObject, lifetime);
@@ -18,7 +17,6 @@ public class Tracking : MonoBehaviour
         EnemyPos = this.transform.position;
     }
 
-    // Update is called once per frame
     void Update()
     {
         var acceleration = Vector3.zero;
@@ -31,7 +29,7 @@ public class Tracking : MonoBehaviour
         {
             return;
         }
-        if (acceleration.magnitude > 100f)
+        if (acceleration.magnitude > 50f)
         {
             acceleration = acceleration.normalized * 100f;
         }

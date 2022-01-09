@@ -34,7 +34,7 @@ public class Shot : MonoBehaviour
         Vector3 direction = newLaser.transform.forward;
         // 弾の発射方向にmewLaserのz方向(ローカル座標)を入れ、レーザーオブジェクトのrigidbodyに衝撃力を加える
         newLaser.GetComponent<Rigidbody>().AddForce(direction * laserSpeed, ForceMode.Impulse);
-        // 出現させたレーザーの名前を"bullet"に変更
+        // 出現させたレーザーの名前を"Laser"に変更
         newLaser.name = Laser.name;
         // 出現させたボールを設定した時間で消す
         Destroy(newLaser, LifeTime);

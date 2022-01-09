@@ -4,25 +4,18 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-    GameObject SliderObj;
+    GameObject PlayerObj;
 
-    // Start is called before the first frame update
     void Start()
     {
-        SliderObj = GameObject.Find("Player");
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        PlayerObj = GameObject.Find("Player");
     }
 
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.tag == "Laser")
         {
-            SliderObj.GetComponent<PlayerHPBar>().AddHP();
+            PlayerObj.GetComponent<PlayerHP>().AddHP();
             Destroy(gameObject);
         }
     }
