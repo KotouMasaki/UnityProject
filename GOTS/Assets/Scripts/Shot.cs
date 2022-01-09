@@ -18,6 +18,7 @@ public class Shot : MonoBehaviour
         {
             // レ－ザ－を発射する
             LauncherShot();
+            
         }
     }
 

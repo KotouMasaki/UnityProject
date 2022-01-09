@@ -31,10 +31,5 @@ public class PlayerController : MonoBehaviour
             this.transform.rotation = Quaternion.Lerp(this.transform.rotation, sphereQuate, 0.1f);
             rb.velocity = this.transform.forward * speed;
         }
-
-        if(Input.GetKey(KeyCode.Return))
-        {
-            SceneManager.LoadScene("ClearScene");
-        }
     }
 }
