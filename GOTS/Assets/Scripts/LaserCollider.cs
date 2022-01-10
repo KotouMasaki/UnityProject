@@ -10,7 +10,6 @@ public class LaserCollider : MonoBehaviour
         if(collider.gameObject.tag == "Enemy")
         {
             Destroy(gameObject);
-            Debug.Log("衝突");
         }
     }
 }

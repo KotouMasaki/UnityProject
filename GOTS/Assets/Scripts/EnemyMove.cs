@@ -11,7 +11,7 @@ public class EnemyMove : MonoBehaviour
     public float wateTime4 = 6.0f;
     public float deleteTime = 30;
 
-    // Update is called once per frame
+    //¶‰E‚ÉˆÚ“®‚·‚é
     void Update()
     {
         second = second + Time.deltaTime;

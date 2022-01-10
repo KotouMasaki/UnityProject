@@ -11,11 +11,12 @@ public class EnemyController : MonoBehaviour
         PlayerObj = GameObject.Find("Player");
     }
 
+    //’e‚ª“–‚½‚Á‚½Player‚ÌHP‚Ì‰ñ•œ‚ÆEnemy‚Ìíœ
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.tag == "Laser")
         {
-            PlayerObj.GetComponent<PlayerHP>().AddHP();
+            PlayerObj.GetComponent<PlayerController>().AddHP();
             Destroy(gameObject);
         }
     }

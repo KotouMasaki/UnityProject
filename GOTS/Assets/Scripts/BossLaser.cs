@@ -16,7 +16,6 @@ public class BossLaser : MonoBehaviour
     void Update()
     {
         second1 = second1 + Time.deltaTime;
-        //Debug.Log(second1);
         if(second1 > FastTime)
         {
             if(FastLaser == true)
@@ -29,7 +28,6 @@ public class BossLaser : MonoBehaviour
             }
             
             second2 = second2 + Time.deltaTime;
-            //Debug.Log(second2);
             if(second2 > Interval)
             {
                 for(int j = 0; j < 50; j++)

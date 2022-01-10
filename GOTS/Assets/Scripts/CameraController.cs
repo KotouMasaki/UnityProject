@@ -8,6 +8,6 @@ public class CameraController : MonoBehaviour
     
     void Update()
     {
-            transform.Translate(0f, 0f, Speed);
+        transform.Translate(0f, 0f, Speed);
     }
 }

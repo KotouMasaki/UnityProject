@@ -21,15 +21,17 @@ public class BossController : MonoBehaviour
         HPBar.SetActive(false);
         HP = false;
         isDamage = false;
+        slider.value = 0;
     }
 
     void Update()
     {
         count++;
+        //Playerが一定の地点を越えるとBossのHP表示と移動を開始する
         if(player.position.z >= 1500)
         {
             HPBar.SetActive(true);
-            if(HP == false & count % 30 == 0)
+            if(HP == false & count % 90 == 0)
             {
                 slider.value += 0.05f;
                 currentHp = maxHp;
@@ -48,13 +50,11 @@ public class BossController : MonoBehaviour
         // ダメージ中は処理スキップ
         if (isDamage)
         {
-            Debug.Log("当たってないよ");
             return;
         }
         if (collider.gameObject.tag == "Laser")
         {
             isDamage = true;
-            Debug.Log("命中！！");
             int damage = 5;
 
             //現在のHPからダメージを引く

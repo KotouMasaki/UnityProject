@@ -24,22 +24,18 @@ public class EnemySpawn : MonoBehaviour
         transform.LookAt(player.transform);
 
         second1 = second1 + Time.deltaTime;
-        //Debug.Log(second1);
         if (second1 > FastTime)
         {
             if(FastSpawn == true)
             {
                 Spawn();
-                //Debug.Log("ìGèoåª");
                 FastSpawn = false;
             }
 
             second2 = second2 + Time.deltaTime;
-            //Debug.Log(second2);
             if (second2 > Interval)
             {
                 Spawn();
-                //Debug.Log("ìGèoåª");
                 second2 = 0;
             }
         }

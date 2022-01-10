@@ -19,7 +19,6 @@ public class TargetController : MonoBehaviour
         {"left", false },
     };
 
-    // Update is called once per frame
     void Update()
     {
         transform.Translate(0f, 0f, Speed);
@@ -30,6 +29,7 @@ public class TargetController : MonoBehaviour
         move["left"] = Input.GetKey(KeyCode.A);
     }
 
+    //移動制限をつけて画面から出ないようにする
     void FixedUpdate()
     {
 

@@ -17,6 +17,7 @@ public class Tracking : MonoBehaviour
         EnemyPos = this.transform.position;
     }
 
+    //Player‚ÌÀ•W‚ğ‚ğæ“¾‚µ’Ç”ö‚·‚é‚æ‚¤‚É‚·‚é
     void Update()
     {
         var acceleration = Vector3.zero;

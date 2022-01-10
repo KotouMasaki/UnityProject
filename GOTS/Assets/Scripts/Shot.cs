@@ -18,13 +18,10 @@ public class Shot : MonoBehaviour
         {
             // レ－ザ－を発射する
             LauncherShot();
-            
         }
     }
 
-    /// <summary>
-	/// レーザーの発射
-	/// </summary>
+    //レ－ザ－の発射
     private void LauncherShot()
     {
         // レーザーを発射する場所を取得
