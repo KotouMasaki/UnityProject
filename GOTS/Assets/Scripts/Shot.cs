@@ -14,7 +14,7 @@ public class Shot : MonoBehaviour
     {
         count += 1;
 
-        if (Input.GetKey(KeyCode.Space) & count % 30 == 0)
+        if (Input.GetKey(KeyCode.Space) & count % 10 == 0)
         {
             // レ－ザ－を発射する
             LauncherShot();

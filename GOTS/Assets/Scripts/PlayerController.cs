@@ -11,7 +11,7 @@ public class PlayerController : MonoBehaviour
     public float speed = 10.0f;
     private Rigidbody rb;
     private Vector3 pos;
-    //Slider‚ğ“ü‚ê‚é
+    //Sliderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     public Slider slider;
     public GameObject target;
     public Transform targetPos;
@@ -19,7 +19,7 @@ public class PlayerController : MonoBehaviour
 
     void Start()
     {
-        //Slider‚ğ”¼•ª‚É‚·‚éB
+        //Sliderï¿½ğ”¼•ï¿½ï¿½É‚ï¿½ï¿½ï¿½B
         slider.value = 0.5f;
         transform.LookAt(target.transform);
         target = GameObject.Find("Target");
@@ -30,12 +30,12 @@ public class PlayerController : MonoBehaviour
     {
         count += 1;
 
-        //•W€‚Ì“®‚«‚É‡‚í‚¹‚ÄŒX‚¯‚é
+        //ï¿½Wï¿½ï¿½ï¿½Ì“ï¿½ï¿½ï¿½ï¿½Éï¿½ï¿½í‚¹ï¿½ÄŒXï¿½ï¿½ï¿½ï¿½
         transform.LookAt(target.transform);
         
-        transform.Translate(0f, 0f, 0.125f);
+        transform.Translate(0f, 0f, 0.5f);
 
-        //•W€‚ÉŠÔŠu‚ğ‚ ‚¯‚Ä‚Â‚¢‚Ä‚¢‚­
+        //ï¿½Wï¿½ï¿½ï¿½ÉŠÔŠuï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä‚Â‚ï¿½ï¿½Ä‚ï¿½ï¿½ï¿½
         Vector3 diff = this.transform.position - targetPos.transform.position;
         if (diff.magnitude > 10.0f)
         {
@@ -44,33 +44,33 @@ public class PlayerController : MonoBehaviour
             rb.velocity = this.transform.forward * speed;
         }
 
-        if (count % 120 == 0)
+        if (count % 30 == 0)
         {
             currentHp = currentHp - 1;
             slider.value = (float)currentHp / (float)maxHp;
         }
     }
 
-    //“G‚Æ’e‚ÌÕ“Ë‚ÉEnemyController‚©‚çŒÄ‚Î‚ê‚é
+    //ï¿½Gï¿½Æ’eï¿½ÌÕ“Ëï¿½ï¿½ï¿½EnemyControllerï¿½ï¿½ï¿½ï¿½Ä‚Î‚ï¿½ï¿½
     public void AddHP()
     {
         currentHp = currentHp + 5;
         slider.value = (float)currentHp / (float)maxHp;
     }
 
-    //ColliderƒIƒuƒWƒFƒNƒg‚ÌIsTrigger‚Éƒ`ƒFƒbƒN“ü‚ê‚é‚±‚ÆB
+    //Colliderï¿½Iï¿½uï¿½Wï¿½Fï¿½Nï¿½gï¿½ï¿½IsTriggerï¿½Éƒ`ï¿½Fï¿½bï¿½Nï¿½ï¿½ï¿½ï¿½é‚±ï¿½ÆB
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Enemy")
         {
             int damage = 5;
 
-            //Œ»İ‚ÌHP‚©‚çƒ_ƒ[ƒW‚ğˆø‚­
+            //ï¿½ï¿½ï¿½İ‚ï¿½HPï¿½ï¿½ï¿½ï¿½_ï¿½ï¿½ï¿½[ï¿½Wï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
             currentHp = currentHp - damage;
 
-            //Å‘åHP‚É‚¨‚¯‚éŒ»İ‚ÌHP‚ğSlider‚É”½‰fB
-            //int“¯m‚ÌŠ„‚èZ‚Í¬”“_ˆÈ‰º‚Í0‚É‚È‚é‚Ì‚ÅA
-            //(float)‚ğ‚Â‚¯‚Äfloat‚Ì•Ï”‚Æ‚µ‚ÄU•‘‚í‚¹‚éB
+            //ï¿½Å‘ï¿½HPï¿½É‚ï¿½ï¿½ï¿½ï¿½éŒ»ï¿½İ‚ï¿½HPï¿½ï¿½Sliderï¿½É”ï¿½ï¿½fï¿½B
+            //intï¿½ï¿½ï¿½mï¿½ÌŠï¿½ï¿½ï¿½Zï¿½Íï¿½ï¿½ï¿½ï¿½_ï¿½È‰ï¿½ï¿½ï¿½0ï¿½É‚È‚ï¿½Ì‚ÅA
+            //(float)ï¿½ï¿½ï¿½Â‚ï¿½ï¿½ï¿½floatï¿½Ì•Ïï¿½ï¿½Æ‚ï¿½ï¿½ÄUï¿½ï¿½ï¿½í‚¹ï¿½ï¿½B
             slider.value = (float)currentHp / (float)maxHp;
         }
 

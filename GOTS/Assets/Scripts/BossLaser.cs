@@ -41,14 +41,13 @@ public class BossLaser : MonoBehaviour
 
     void Laser()
     {
-            Debug.Log("ƒŒ[ƒU[”­Ë");
             GameObject Laser = Instantiate(laser, transform.position, Quaternion.identity);
             Rigidbody LaserRb = Laser.GetComponent<Rigidbody>();
 
-            // ’e‘¬‚Í©—R‚Éİ’è
+            // ï¿½eï¿½ï¿½ï¿½Íï¿½ï¿½Rï¿½Éİ’ï¿½
             LaserRb.AddForce(transform.forward * LaserSpeed);
 
-            // ‚T•bŒã‚É–C’e‚ğ”j‰ó‚·‚é
+            // ï¿½Tï¿½bï¿½ï¿½É–Cï¿½eï¿½ï¿½jï¿½ó‚·‚ï¿½
             Destroy(Laser, LifeTime);
 
     }
