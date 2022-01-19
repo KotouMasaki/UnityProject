@@ -112,7 +112,9 @@
 -define:ENABLE_TERRAIN
 -define:ENABLE_TILEMAP
 -define:ENABLE_TIMELINE
+-define:ENABLE_INPUT_SYSTEM
 -define:ENABLE_LEGACY_INPUT_MANAGER
+-define:STARTER_ASSETS_PACKAGES_CHECKED
 -define:CSHARP_7_OR_LATER
 -define:CSHARP_7_3_OR_NEWER
 -r:"C:/Program Files/2021.2.2f1/Editor/Data/Managed/UnityEditor.Graphs.dll"
@@ -324,6 +326,12 @@
 -r:"C:/Program Files/2021.2.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Runtime.Serialization.dll"
 -r:"C:/Program Files/2021.2.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.dll"
 -r:"C:/Program Files/2021.2.2f1/Editor/Data/UnityReferenceAssemblies/unity-4.8-api/System.Xml.Linq.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Mdb.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Pdb.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.CodeGen/Unity.Burst.Cecil.Rocks.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.burst@1.6.0/Unity.Burst.Unsafe.dll"
+-r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.cinemachine@2.8.4/Runtime/ThirdParty/clipper_library.dll"
 -r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.collab-proxy@1.13.5/Lib/Editor/PlasticSCM/log4netPlastic.dll"
 -r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.collab-proxy@1.13.5/Lib/Editor/PlasticSCM/Unity.Plastic.Antlr3.Runtime.dll"
 -r:"C:/Users/kcloc/UnityProject/RunAway/Library/PackageCache/com.unity.collab-proxy@1.13.5/Lib/Editor/PlasticSCM/Unity.Plastic.Newtonsoft.Json.dll"
