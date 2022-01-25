@@ -6,6 +6,8 @@ TagManager:
   tags:
   - CinemachineTarget
   - Obstacle
+  - Door_A
+  - Door_B
   layers:
   - Default
   - TransparentFX

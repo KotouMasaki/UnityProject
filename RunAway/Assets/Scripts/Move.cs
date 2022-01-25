@@ -14,6 +14,13 @@ public class Move : MonoBehaviour
     private float Level = 1.0f;
     private float moveX;
     private float moveZ;
+    public GameObject player;
+    public GameObject point_A;
+    public GameObject point_B;
+    public GameObject point_C;
+    public GameObject door_a;
+    public GameObject door_b;
+    public GameObject door_c;
 
     void Start()
     {
@@ -24,7 +31,7 @@ public class Move : MonoBehaviour
     void Update()
     {
         timer = timer + Time.deltaTime;
-        if (timer > 5)
+        if (timer > 10)
         {
             Level += 0.1f;
             timer = 0.0f;
@@ -43,12 +50,11 @@ public class Move : MonoBehaviour
             {
                 moveDirection.y = 8;
                 animator.SetBool("Jump", true);
-                Debug.Log("ジャンプ！");
+                //Debug.Log("ジャンプ！");
             }else
             {
                 animator.SetBool("Jump", false);
             }
-            //animator.SetBool("Ground", true);
         }
 
         //
@@ -67,6 +73,25 @@ public class Move : MonoBehaviour
         {
             Debug.Log("hit");
             SceneManager.LoadScene("GameOverScene");
+        }
+        if (hit.gameObject.tag == "Door_A")
+        {
+            Debug.Log("hit_A");
+            //　CharacterControllerコンポーネントを一旦無効化する
+            controller.enabled = false;
+            //　Playerの位置を変更する
+            player.transform.position = point_A.transform.position;
+            //　CharacterControllerコンポーネントを有効化する
+            controller.enabled = true;
+            Destroy(door_a);
+            Instantiate(door_b, new Vector3(-1.15625f, 0.125f, 120f), Quaternion.identity);
+        }
+        if(hit.gameObject.tag == "Door_B")
+        {
+            Debug.Log("hit_B");
+            controller.enabled = false;
+            player.transform.position = point_B.transform.position;
+            controller.enabled = true;
         }
     }
 }
