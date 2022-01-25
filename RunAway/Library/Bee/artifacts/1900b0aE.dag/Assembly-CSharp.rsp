@@ -372,7 +372,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/About/Scripts/Readme.cs"
-"Assets/Move.cs"
+"Assets/Scripts/Move.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
 "Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs"
 "Assets/StarterAssets/Mobile/Scripts/Utilities/MobileDisableAutoSwitchControls.cs"
@@ -381,6 +381,8 @@
 "Assets/StarterAssets/Mobile/Scripts/VirtualInputs/UIVirtualTouchZone.cs"
 "Assets/StarterAssets/ThirdPersonController/Scripts/BasicRigidBodyPush.cs"
 "Assets/StarterAssets/ThirdPersonController/Scripts/ThirdPersonController.cs"
+"Assets/_Barking_Dog/Common Scripts/MouseLook.cs"
+"Assets/_Barking_Dog/Common Scripts/Turn_Move.cs"
 -langversion:9.0
 
 /deterministic
