@@ -8,26 +8,34 @@ public class Move : MonoBehaviour
     private Animator animator;
     CharacterController controller;
     private float speed = 6.0f;
-    private float gravity = 9.8f;
+    private float jump = 17.0f;
+    private float gravity = 17.64f;
     private Vector3 moveDirection;
     private float timer;
     private float Level = 1.0f;
     private float moveX;
     private float moveZ;
-    public GameObject player;
     public GameObject point_A;
     public GameObject point_B;
     public GameObject point_C;
+    public GameObject point_D;
     public GameObject door_a;
     public GameObject door_b;
     public GameObject door_c;
+    public GameObject door_d;
 
+    /// <summary>
+    /// コンポ－ネントを取得する
+    /// </summary>
     void Start()
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
     }
 
+    /// <summary>
+    /// 移動用のクラス
+    /// </summary>
     void Update()
     {
         timer = timer + Time.deltaTime;
@@ -48,16 +56,14 @@ public class Move : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                moveDirection.y = 8;
+                moveDirection.y = jump;
                 animator.SetBool("Jump", true);
-                //Debug.Log("ジャンプ！");
             }else
             {
                 animator.SetBool("Jump", false);
             }
         }
 
-        //
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
@@ -67,30 +73,45 @@ public class Move : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// CharacterController用の当たり判定のクラス
+    /// </summary>
+    /// <param name="hit">/// </param>
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
         if(hit.gameObject.tag == "Obstacle")
         {
-            Debug.Log("hit");
             SceneManager.LoadScene("GameOverScene");
         }
         if (hit.gameObject.tag == "Door_A")
         {
-            Debug.Log("hit_A");
             //　CharacterControllerコンポーネントを一旦無効化する
             controller.enabled = false;
             //　Playerの位置を変更する
-            player.transform.position = point_A.transform.position;
+            this.transform.position = point_A.transform.position;
             //　CharacterControllerコンポーネントを有効化する
             controller.enabled = true;
             Destroy(door_a);
-            Instantiate(door_b, new Vector3(-1.15625f, 0.125f, 120f), Quaternion.identity);
+            Instantiate(door_b, new Vector3(-1.15625f, 0.125f, 120.0f), Quaternion.identity);
         }
         if(hit.gameObject.tag == "Door_B")
         {
-            Debug.Log("hit_B");
             controller.enabled = false;
-            player.transform.position = point_B.transform.position;
+            this.transform.position = point_B.transform.position;
+            controller.enabled = true;
+        }
+        if(hit.gameObject.tag == "Door_C")
+        {
+            controller.enabled = false;
+            this.transform.position = point_C.transform.position;
+            controller.enabled = true;
+            Destroy(door_c);
+            Instantiate(door_d, new Vector3(-1.15625f, 0.125f, 120.0f), Quaternion.identity);
+        }
+        if(hit.gameObject.tag == "Door_D")
+        {
+            controller.enabled = false;
+            this.transform.position = point_D.transform.position;
             controller.enabled = true;
         }
     }

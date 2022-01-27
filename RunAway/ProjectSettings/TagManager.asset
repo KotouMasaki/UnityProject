@@ -8,6 +8,9 @@ TagManager:
   - Obstacle
   - Door_A
   - Door_B
+  - Door_C
+  - Door_D
+  - Coin
   layers:
   - Default
   - TransparentFX

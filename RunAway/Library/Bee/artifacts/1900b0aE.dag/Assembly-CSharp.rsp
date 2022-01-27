@@ -372,7 +372,7 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEditor.UI.ref.dll"
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/About/Scripts/Readme.cs"
-"Assets/ChangePosition.cs"
+"Assets/Coin.cs"
 "Assets/Scripts/Move.cs"
 "Assets/StarterAssets/InputSystem/StarterAssetsInputs.cs"
 "Assets/StarterAssets/Mobile/Scripts/CanvasInputs/UICanvasControllerInput.cs"
