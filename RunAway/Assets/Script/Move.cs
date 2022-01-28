@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class Move : MonoBehaviour
 {
     private Animator animator;
+    private GameObject TextObj;
     CharacterController controller;
     private float speed = 6.0f;
     private float jump = 17.0f;
@@ -15,6 +16,7 @@ public class Move : MonoBehaviour
     private float Level = 1.0f;
     private float moveX;
     private float moveZ;
+    private int stock = 3;
     public GameObject point_A;
     public GameObject point_B;
     public GameObject point_C;
@@ -31,6 +33,7 @@ public class Move : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        TextObj = GameObject.Find("Stock");
     }
 
     /// <summary>
@@ -69,7 +72,19 @@ public class Move : MonoBehaviour
 
         if(this.transform.position.y <= -10)
         {
-            SceneManager.LoadScene("GameOverScene");
+            stock -= 1;
+            TextObj.GetComponent<Stock>().SubStock();
+            Debug.Log(stock);
+            if (stock == 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
+            }
+            else
+            {
+                controller.enabled = false;
+                this.transform.position = point_A.transform.position;
+                controller.enabled = true;
+            }
         }
     }
 
@@ -81,7 +96,19 @@ public class Move : MonoBehaviour
     {
         if(hit.gameObject.tag == "Obstacle")
         {
-            SceneManager.LoadScene("GameOverScene");
+            stock -= 1;
+            TextObj.GetComponent<Stock>().SubStock();
+            Debug.Log(stock);
+            if (stock == 0)
+            {
+                SceneManager.LoadScene("GameOverScene");
+            }
+            else
+            {
+                controller.enabled = false;
+                this.transform.position = point_A.transform.position;
+                controller.enabled = true;
+            }
         }
         if (hit.gameObject.tag == "Door_A")
         {
@@ -113,6 +140,10 @@ public class Move : MonoBehaviour
             controller.enabled = false;
             this.transform.position = point_D.transform.position;
             controller.enabled = true;
+        }
+        if(hit.gameObject.tag == "Door_E")
+        {
+            SceneManager.LoadScene("GameClearScene");
         }
     }
 }
