@@ -1,168 +1,90 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-	private CharacterController enemyController;
-	private Animator animator;
-	//@–Ú“I’n
-	private Vector3 destination;
-	private Vector3 Position1;
-	[SerializeField]
-	private float Position2_x, Position2_z;
-	[SerializeField]
-	private float Position3_x, Position3_z;
-	[SerializeField]
-	private float Position4_x, Position4_z;
-	//–Ú“I’n‚ğØ‚è‘Ö‚¦‚éƒtƒ‰ƒO
-	[SerializeField]
-	private bool therdPoint;
-	[SerializeField]
-	private bool fourthPoint;
-	private int RootCounter;
-	//private bool countDown;
-	//@•à‚­ƒXƒs[ƒh
-	[SerializeField]
-	private float walkSpeed = 1.0f;
-	//@‘¬“x
-	private Vector3 velocity;
-	//@ˆÚ“®•ûŒü
-	private Vector3 direction;
-	//@“’…ƒtƒ‰ƒO
-	private bool arrived;
-	//@‘Ò‚¿ŠÔ
-	[SerializeField]
-	private float waitTime = 5f;
-	//@Œo‰ßŠÔ
-	private float elapsedTime;
+    public Transform[] points;
+    public Transform player;
+    private int destPoint = 0;
+    private bool find;
+    // æ•µã®çŠ¶æ…‹
+    private EnemyState state;
+    private NavMeshAgent agent;
+    private Animator animator;
+
+    public enum EnemyState
+    {
+        Walk,
+        Wait,
+        Chase
+    };
+
+    void Start()
+    {
+        agent = GetComponent<NavMeshAgent>();
+        animator = GetComponent<Animator>();
+
+        // autoBraking ã‚’ç„¡åŠ¹ã«ã™ã‚‹ã¨ã€ç›®æ¨™åœ°ç‚¹ã®é–“ã‚’ç¶™ç¶šçš„ã«ç§»å‹•ã—ã¾ã™
+        agent.autoBraking = false;
+        animator.SetBool("Speed", true);
+        SetState(EnemyState.Walk);
+        GotoNextPoint();
+    }
 
 
-	// Use this for initialization
-	void Start()
-	{
-		enemyController = GetComponent<CharacterController>();
-		animator = GetComponent<Animator>();
-		Position1 = transform.position;
-		destination = new Vector3(Position2_x, 0f, Position2_z);
-		velocity = Vector3.zero;
-		arrived = false;
-		RootCounter = 0;
-	}
-
-	// Update is called once per frame
-	void Update()
-	{
-		if (!arrived)
-		{
-			if (enemyController.isGrounded)
-			{
-				velocity = Vector3.zero;
-				animator.SetBool("Speed", true);
-				direction = (destination - transform.position).normalized;
-				transform.LookAt(new Vector3(destination.x, transform.position.y, destination.z));
-				velocity = direction * walkSpeed;
-				//Debug.Log(destination);
-			}
-			velocity.y += Physics.gravity.y * Time.deltaTime;
-			enemyController.Move(velocity * Time.deltaTime);
-
-			//@–Ú“I’n‚É“’…‚µ‚½‚©‚Ç‚¤‚©‚Ì”»’è
-			if (Vector3.Distance(transform.position, destination) < 0.5f)
-			{
-				arrived = true;
-				animator.SetBool("Speed", false);
-				//Debug.Log(arrived);
-			}
+    void GotoNextPoint()
+    {
+        Debug.Log("å‘¼ã°ã‚ŒãŸ");
+        // åœ°ç‚¹ãŒãªã«ã‚‚è¨­å®šã•ã‚Œã¦ã„ãªã„ã¨ãã«è¿”ã—ã¾ã™
+        if (points.Length == 0)
+        {
+            return;
         }
-        else
+
+
+        // ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒç¾åœ¨è¨­å®šã•ã‚ŒãŸç›®æ¨™åœ°ç‚¹ã«è¡Œãã‚ˆã†ã«è¨­å®šã—ã¾ã™
+        agent.destination = points[destPoint].position;
+
+        // é…åˆ—å†…ã®æ¬¡ã®ä½ç½®ã‚’ç›®æ¨™åœ°ç‚¹ã«è¨­å®šã—ã€
+        // å¿…è¦ãªã‚‰ã°å‡ºç™ºåœ°ç‚¹ã«ã‚‚ã©ã‚Šã¾ã™
+        destPoint = (destPoint + 1) % points.Length;
+    }
+
+    public void SetState(EnemyState tempState, Transform targetObj = null)
+    {
+        if(tempState == EnemyState.Walk)
         {
-			elapsedTime += Time.deltaTime;
-
-			//@‘Ò‚¿ŠÔ‚ğ‰z‚¦‚½‚çŸ‚Ì–Ú“I’n‚ğİ’è
-			if (elapsedTime > waitTime)
-			{
-				if(!therdPoint && !fourthPoint)
-                {
-					SecondPoint();
-                }
-				if(therdPoint)
-                {
-					TherdPoint();
-                }
-				if(fourthPoint)
-                {
-					FourthPoint();
-                }
-				arrived = false;
-				elapsedTime = 0f;
-			}
-			Debug.Log(elapsedTime);
-		}
-	}
-
-	void SecondPoint()
-    {
-		//Debug.Log("“’B");
-		if (RootCounter > 2) RootCounter = 0;
-		RootCounter++;
-		switch (RootCounter)
-		{
-			case 1:
-				destination = new Vector3(Position1.x, 0f, Position1.z);
-				break;
-			case 2:
-				destination = new Vector3(Position2_x, 0f, Position2_z);
-				break;
-		}
-	}
-	void TherdPoint()
-    {
-		//Debug.Log("“’B");
-		if (RootCounter > 4) RootCounter = 0;
-		RootCounter++;
-		switch(RootCounter)
+            find = false;
+            GotoNextPoint();
+        }else if(tempState == EnemyState.Chase)
         {
-			case 1:
-				destination = new Vector3(Position3_x, 0f, Position3_z);
-				break;
-			case 2:
-				destination = new Vector3(Position2_x, 0f, Position2_z);
-				break;
-			case 3:
-				destination = new Vector3(Position1.x, 0f, Position1.z);
-				break;
-			case 4:
-				destination = new Vector3(Position2_x, 0f, Position2_z);
-				break;
-		}
-	}
+            find = true;
+            agent.destination = player.position;
+        }else if(tempState == EnemyState.Wait)
+        {
+            find = true;
+            agent.destination = player.position;
+        }
+    }
 
-	void FourthPoint()
+    //ã€€æ•µã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®çŠ¶æ…‹å–å¾—ãƒ¡ã‚½ãƒƒãƒ‰
+    public EnemyState GetState()
     {
-		//Debug.Log("“’B");
-		if (RootCounter > 6) RootCounter = 0;
-		RootCounter++;
-		switch (RootCounter)
-		{
-			case 1:
-				destination = new Vector3(Position3_x, 0f, Position3_z);
-				break;
-			case 2:
-				destination = new Vector3(Position4_x, 0f, Position4_z);
-				break;
-			case 3:
-				destination = new Vector3(Position3_x, 0f, Position3_z);
-				break;
-			case 4:
-				destination = new Vector3(Position2_x, 0f, Position2_z);
-				break;
-			case 5:
-				destination = new Vector3(Position1.x, 0f, Position1.z);
-				break;
-			case 6:
-				destination = new Vector3(Position2_x, 0f, Position2_z);
-				break;
-		}
-	}
+        return state;
+    }
+
+    void Update()
+    {
+        if(!find)
+        {
+            // ã‚¨ãƒ¼ã‚¸ã‚§ãƒ³ãƒˆãŒç¾ç›®æ¨™åœ°ç‚¹ã«è¿‘ã¥ã„ã¦ããŸã‚‰ã€
+            // æ¬¡ã®ç›®æ¨™åœ°ç‚¹ã‚’é¸æŠã—ã¾ã™
+            if (!agent.pathPending && agent.remainingDistance < 0.5f)
+            {
+                GotoNextPoint();
+            }
+        }
+    }
 }
