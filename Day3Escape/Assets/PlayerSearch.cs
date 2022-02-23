@@ -35,7 +35,7 @@ public class PlayerSearch : MonoBehaviour
                 //　敵キャラクターが追いかける状態でなければ追いかける設定に変更
                 if (state != EnemyMove.EnemyState.Chase)
                 {
-                    Debug.Log("主人公を発見2");
+                    Debug.Log("主人公を発見");
                     enemyMove.SetState(EnemyMove.EnemyState.Chase, col.transform);
                 }
             }

@@ -7,6 +7,8 @@ public class EnemyMove : MonoBehaviour
 {
     public Transform[] points;
     public Transform player;
+    public float walkSpeed;
+    public float chaseSpeed;
     private int destPoint = 0;
     private bool find;
     // 敵の状態
@@ -17,7 +19,6 @@ public class EnemyMove : MonoBehaviour
     public enum EnemyState
     {
         Walk,
-        Wait,
         Chase
     };
 
@@ -28,7 +29,7 @@ public class EnemyMove : MonoBehaviour
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
         agent.autoBraking = false;
-        animator.SetBool("Speed", true);
+        //animator.SetBool("Speed", true);
         SetState(EnemyState.Walk);
         GotoNextPoint();
     }
@@ -57,14 +58,14 @@ public class EnemyMove : MonoBehaviour
         if(tempState == EnemyState.Walk)
         {
             find = false;
+            animator.SetBool("Speed", false);
+            agent.speed = walkSpeed;
             GotoNextPoint();
         }else if(tempState == EnemyState.Chase)
         {
             find = true;
-            agent.destination = player.position;
-        }else if(tempState == EnemyState.Wait)
-        {
-            find = true;
+            animator.SetBool("Speed", true);
+            agent.speed = chaseSpeed;
             agent.destination = player.position;
         }
     }
