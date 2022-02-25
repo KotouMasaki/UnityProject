@@ -12,11 +12,13 @@ public class PlayerMove : MonoBehaviour
     private bool wait;
     private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
+        animator = GetComponent<Animator>();
         wait = false;
     }
 
@@ -24,7 +26,14 @@ public class PlayerMove : MonoBehaviour
     void Update()
     {
         speed = 1.0f;
-        if (Input.GetKey(KeyCode.Space)) speed = 2.0f;
+        if (Input.GetKey(KeyCode.Space))
+        {
+            speed = 2.0f;
+            animator.SetBool("Run", true);
+        }else
+        {
+            animator.SetBool("Run", false);
+        }
         moveX = Input.GetAxis("Horizontal") * speed;
         moveZ = Input.GetAxis("Vertical") * speed;
 
@@ -37,6 +46,7 @@ public class PlayerMove : MonoBehaviour
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
+        //ƒhƒA‚ðŠJ‚¯‚½Œã‚Ì‘Ò‚¿ŽžŠÔ
         if (wait)
         {
             waitTime = waitTime + Time.deltaTime;

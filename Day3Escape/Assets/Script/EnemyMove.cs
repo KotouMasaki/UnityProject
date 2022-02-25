@@ -37,7 +37,7 @@ public class EnemyMove : MonoBehaviour
 
     void GotoNextPoint()
     {
-        Debug.Log("呼ばれた");
+        Debug.Log("次の目標へ");
         // 地点がなにも設定されていないときに返します
         if (points.Length == 0)
         {
