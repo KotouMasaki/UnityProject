@@ -4,13 +4,21 @@ using UnityEngine;
 
 public class PlayerMove : MonoBehaviour
 {
-    public float speed = 1.0f;
-    public float gravity = 20.0F;
-    public float rotateSpeed = 0.5F;
-    private float moveX, moveZ;
+    [SerializeField]
+    private float walkSpeed;
+    [SerializeField]
+    private float runSpeed;
+    [SerializeField]
+    private float rotateSpeed = 3.0F;    //回転速度
+    [SerializeField]
+    private float gravity = 20.0F;       //重力の大きさ
+    private Vector3 moveDirection = Vector3.zero;
+    [SerializeField]
+    private GameObject footSteps;
+    private float h, v;
+    private float walk;
     private float waitTime;
     private bool wait;
-    private Vector3 moveDirection = Vector3.zero;
     private CharacterController controller;
     private Animator animator;
 
@@ -19,44 +27,54 @@ public class PlayerMove : MonoBehaviour
     {
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        walk = walkSpeed;
         wait = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        speed = 1.0f;
-        if (Input.GetKey(KeyCode.Space))
-        {
-            speed = 2.0f;
-            animator.SetBool("Run", true);
-        }else
-        {
-            animator.SetBool("Run", false);
-        }
-        moveX = Input.GetAxis("Horizontal") * speed;
-        moveZ = Input.GetAxis("Vertical") * speed;
+        h = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
+        v = Input.GetAxis("Vertical");      //上下矢印キーの値(-1.0~1.0)
 
         if (controller.isGrounded)
         {
-            gameObject.transform.Rotate(new Vector3(0, rotateSpeed * moveX, 0));
-            moveDirection = speed * moveZ * gameObject.transform.forward;
-        }
+            gameObject.transform.Rotate(new Vector3(0, (rotateSpeed * h), 0));
+            moveDirection = walkSpeed * v * gameObject.transform.forward;
+            if (moveDirection.magnitude > 0.1f)
+            {
+                animator.SetFloat("Speed", moveDirection.magnitude);
+                transform.LookAt(transform.position + moveDirection);
 
+                if (Input.GetKey(KeyCode.Space))
+                {
+                    walkSpeed = runSpeed;
+                    animator.SetBool("Run", true);
+                    //Debug.Log("生成");
+                    //Instantiate(footSteps);
+                }
+                else
+                {
+                    walkSpeed = walk;
+                    animator.SetBool("Run", false);
+                    animator.SetFloat("Speed", moveDirection.magnitude);
+                }
+            }
+            else
+            {
+                animator.SetFloat("Speed", 0f);
+            }
+        }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
 
         //ドアを開けた後の待ち時間
         if (wait)
         {
+            waitTime = 0;
             waitTime = waitTime + Time.deltaTime;
             //Debug.Log(waitTime);
-            if (waitTime >= 2.0f)
-            {
-                waitTime = 0;
-                wait = false;
-            }
-
+            if (waitTime >= 1.0f) wait = false;
         }
     }
 
