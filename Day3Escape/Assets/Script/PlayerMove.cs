@@ -71,10 +71,13 @@ public class PlayerMove : MonoBehaviour
         //ƒhƒA‚ðŠJ‚¯‚½Œã‚Ì‘Ò‚¿ŽžŠÔ
         if (wait)
         {
-            waitTime = 0;
             waitTime = waitTime + Time.deltaTime;
             //Debug.Log(waitTime);
-            if (waitTime >= 1.0f) wait = false;
+            if (waitTime >= 1.0f)
+            {
+                wait = false;
+                waitTime = 0;
+            }
         }
     }
 
@@ -111,6 +114,17 @@ public class PlayerMove : MonoBehaviour
                 hit.gameObject.SendMessage("Change");
                 wait = true;
             }
+        }
+        if(hit.gameObject.name == "ChangeCameraB" && !wait)
+        {
+            hit.gameObject.SendMessage("Change");
+            wait = true;
+        }
+        if(hit.gameObject.name == "ChangeCameraA" && !wait)
+        {
+            Debug.Log("Hi!");
+            hit.gameObject.SendMessage("Change");
+            wait = true;
         }
     }
 }
