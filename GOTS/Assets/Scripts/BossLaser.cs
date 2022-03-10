@@ -23,8 +23,10 @@ public class BossLaser : MonoBehaviour
                 for(int i = 0; i < 50; i++)
                 {
                     Laser();
+                    //laser.SetActive(true);
                 }
                 FastLaser = false;
+                //laser.SetActive(false);
             }
             
             second2 = second2 + Time.deltaTime;
@@ -33,8 +35,10 @@ public class BossLaser : MonoBehaviour
                 for(int j = 0; j < 50; j++)
                 {
                     Laser();
+                    //laser.SetActive(true);
                 }
                 second2 = 0;
+                //laser.SetActive(false);
             }
         }
     }
