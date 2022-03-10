@@ -9,38 +9,15 @@ public class ChangeCamera : MonoBehaviour
 
     private bool change = true;
 
-    void OnTriggerEnter(Collider col)
-    {
-        //　プレイヤーキャラクターを発見
-        if (col.tag == "Player")
-        {
-            Debug.Log("入った");
-        }
-    }
+    int i = 0;
 
-    void OnTriggerExit(Collider col)
-    {
-        if (col.tag == "Player")
-        {
-            Debug.Log(change);
-            Test();
-        }
-    }
-
-    void Test()
+    public void Test()
     {
         Debug.Log("test");
-        if (change)
-        {
-            cameraA.SetActive(false);
-            cameraB.SetActive(true);
-            change = false;
-        }
-        if (!change)
-        {
-            cameraA.SetActive(true);
-            cameraB.SetActive(false);
-            change = true;
-        }
+        Debug.Log(i);
+        i = 10;
+        Debug.Log(i);
+        cameraA.SetActive(false);
+        cameraB.SetActive(true);
     }
 }

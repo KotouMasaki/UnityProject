@@ -5,37 +5,29 @@ using UnityEditor;
 
 public class test : MonoBehaviour
 {
+    //[SerializeField]
+    //private ChangeCamera changeCamera;
+    public GameObject sensor_a;
+    public GameObject sensor_b;
     public GameObject cameraA;
     public GameObject cameraB;
 
-    private bool change;
+    //private bool change;
 
-    void OnTriggerEnter(Collider col)
+    void Start()
     {
-        //　プレイヤーキャラクターを発見
-        if (col.tag == "Player")
-        {
-            Debug.Log("入った");
-        }
+        //changeCamera = GetComponentInParent<ChangeCamera>();
     }
 
     void OnTriggerExit(Collider col)
     {
         if (col.tag == "Player")
         {
+            cameraA.SetActive(false);
+            cameraB.SetActive(true);
+            sensor_a.SetActive(true);
+            sensor_b.SetActive(false);
             Debug.Log("見失う");
-            if (change)
-            {
-                cameraA.SetActive(false);
-                cameraB.SetActive(true);
-                change = false;
-            }
-            if (!change)
-            {
-                cameraA.SetActive(true);
-                cameraB.SetActive(false);
-                change = true;
-            }
         }
     }
 }

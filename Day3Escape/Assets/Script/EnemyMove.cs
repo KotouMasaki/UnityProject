@@ -88,4 +88,11 @@ public class EnemyMove : MonoBehaviour
             }
         }
     }
+
+    void Warp(Transform transform)
+    {
+        //　Enemyの位置を変更する
+        this.transform.position = transform.position;
+        Debug.Log("Warp!");
+    }
 }

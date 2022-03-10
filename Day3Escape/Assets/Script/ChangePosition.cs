@@ -5,6 +5,7 @@ using UnityEngine;
 public class ChangePosition : MonoBehaviour
 {
     private GameObject player;
+    private GameObject soldier;
     public GameObject cameraA;
     public GameObject cameraB;
     public Transform changePos;
@@ -12,6 +13,7 @@ public class ChangePosition : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
+        soldier = GameObject.Find("Soldier");
     }
 
     void Update()
@@ -19,7 +21,7 @@ public class ChangePosition : MonoBehaviour
         
     }
 
-    void Change()
+    void ChangePosPlayer()
     {
         Debug.Log("posA");
         cameraA.SetActive(false);
