@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class ChangeCamera : MonoBehaviour
 {
-    public GameObject cameraA;
-    public GameObject cameraB;
+    [SerializeField]
+    private GameObject sensor_a;
+    [SerializeField]
+    private GameObject sensor_b;
+    [SerializeField]
+    private Transform cameraPos;
 
-    private bool change = true;
+    private GameObject camera;
 
-    int i = 0;
-
-    public void Test()
+    void Start()
     {
-        Debug.Log("test");
-        Debug.Log(i);
-        i = 10;
-        Debug.Log(i);
-        cameraA.SetActive(false);
-        cameraB.SetActive(true);
+        camera = GameObject.Find("Camera");
+    }
+
+    void OnTriggerExit(Collider col)
+    {
+        if (col.tag == "Player")
+        {
+            camera.transform.position = cameraPos.position;
+            sensor_a.SetActive(true);
+            sensor_b.SetActive(false);
+        }
     }
 }

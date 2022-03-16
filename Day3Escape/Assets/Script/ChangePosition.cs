@@ -6,14 +6,18 @@ public class ChangePosition : MonoBehaviour
 {
     private GameObject player;
     private GameObject soldier;
-    public GameObject cameraA;
-    public GameObject cameraB;
-    public Transform changePos;
+    private GameObject camera;
+    [SerializeField]
+    private Transform cameraPos;
+    [SerializeField]
+    private Transform changePos;
 
     void Start()
     {
         player = GameObject.Find("Player");
         soldier = GameObject.Find("Soldier");
+        camera = GameObject.Find("Camera");
+
     }
 
     void Update()
@@ -23,9 +27,7 @@ public class ChangePosition : MonoBehaviour
 
     void ChangePosPlayer()
     {
-        Debug.Log("posA");
-        cameraA.SetActive(false);
-        cameraB.SetActive(true);
+        camera.transform.position = cameraPos.position;
         player.SendMessage("Warp", changePos);
     }
 }

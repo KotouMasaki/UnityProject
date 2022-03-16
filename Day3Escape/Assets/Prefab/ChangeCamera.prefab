@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1426501178590704876}
   - component: {fileID: 1426501178590704883}
-  - component: {fileID: 1426501178590704882}
-  m_Layer: 0
+  - component: {fileID: 4388751428976879003}
+  m_Layer: 3
   m_Name: Sensor_B
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -46,7 +46,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.2, z: 6}
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &1426501178590704882
+--- !u!114 &4388751428976879003
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -55,13 +55,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426501178590704881}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcad9f4f46af56d499e5a4b4839f62dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b04cb31a7962b8a429fa89a674a7fde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensor_a: {fileID: 1426501179145936890}
   sensor_b: {fileID: 1426501178590704881}
-  cameraA: {fileID: 0}
-  cameraB: {fileID: 0}
+  cameraPos: {fileID: 0}
 --- !u!1 &1426501179145936890
 GameObject:
   m_ObjectHideFlags: 0
@@ -72,8 +71,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1426501179145936891}
   - component: {fileID: 1426501179145936884}
-  - component: {fileID: 1426501179145936886}
-  m_Layer: 0
+  - component: {fileID: 2573984554444096680}
+  m_Layer: 3
   m_Name: Sensor_A
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -108,7 +107,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.2, z: 6}
   m_Center: {x: 0, y: 0.6, z: 0}
---- !u!114 &1426501179145936886
+--- !u!114 &2573984554444096680
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -117,13 +116,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1426501179145936890}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcad9f4f46af56d499e5a4b4839f62dd, type: 3}
+  m_Script: {fileID: 11500000, guid: b04cb31a7962b8a429fa89a674a7fde0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   sensor_a: {fileID: 1426501178590704881}
   sensor_b: {fileID: 1426501179145936890}
-  cameraA: {fileID: 0}
-  cameraB: {fileID: 0}
+  cameraPos: {fileID: 0}
 --- !u!1 &8368637340912309943
 GameObject:
   m_ObjectHideFlags: 0
@@ -133,7 +131,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1920704627053550990}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ChangeCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
