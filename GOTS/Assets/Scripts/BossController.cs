@@ -6,16 +6,23 @@ using UnityEngine.SceneManagement;
 
 public class BossController : MonoBehaviour
 {
-    public float Speed;
-    public float maxHp = 100.0f;
-    public float currentHp;
-    public Slider slider;
-    public GameObject HPBar;
-    public Transform player;
+    [SerializeField]
+    private float Speed;
+    [SerializeField]
+    private float maxHp;
+    [SerializeField]
+    private float currentHp;
     private int count;
     private bool HP;
     private bool isDamage;
 
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    private GameObject HPBar;
+    [SerializeField]
+    private Transform player;
+    
     void Start()
     {
         HPBar.SetActive(false);
@@ -26,10 +33,10 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        count++;
         //Playerが一定の地点を越えるとBossのHP表示と移動を開始する
         if(player.position.z >= 1500)
         {
+            count++;
             HPBar.SetActive(true);
             if(HP == false & count % 90 == 0)
             {

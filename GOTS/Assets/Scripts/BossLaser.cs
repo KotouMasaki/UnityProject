@@ -4,14 +4,21 @@ using UnityEngine;
 
 public class BossLaser : MonoBehaviour
 {
-    public int LaserSpeed;
-    public float LifeTime;
-    public float FastTime;
-    public float Interval;
+    [SerializeField]
+    private int LaserSpeed;
+    [SerializeField]
+    private float LifeTime;
+    [SerializeField]
+    private float FastTime;
+    [SerializeField]
+    private float Interval;
+    [SerializeField]
+    private bool FastLaser;
     private float second1;
     private float second2;
-    public GameObject laser;
-    public bool FastLaser = true;
+
+    [SerializeField]
+    private GameObject laser;
 
     void Update()
     {
@@ -23,10 +30,8 @@ public class BossLaser : MonoBehaviour
                 for(int i = 0; i < 50; i++)
                 {
                     Laser();
-                    //laser.SetActive(true);
                 }
                 FastLaser = false;
-                //laser.SetActive(false);
             }
             
             second2 = second2 + Time.deltaTime;
@@ -35,24 +40,22 @@ public class BossLaser : MonoBehaviour
                 for(int j = 0; j < 50; j++)
                 {
                     Laser();
-                    //laser.SetActive(true);
                 }
                 second2 = 0;
-                //laser.SetActive(false);
             }
         }
     }
 
     void Laser()
     {
-            GameObject Laser = Instantiate(laser, transform.position, Quaternion.identity);
-            Rigidbody LaserRb = Laser.GetComponent<Rigidbody>();
+        GameObject Laser = Instantiate(laser, transform.position, Quaternion.identity);
+        Rigidbody LaserRb = Laser.GetComponent<Rigidbody>();
 
-            // �e���͎��R�ɐݒ�
-            LaserRb.AddForce(transform.forward * LaserSpeed);
+        //LaserRbに力を加える
+        LaserRb.AddForce(transform.forward * LaserSpeed);
 
-            // �T�b��ɖC�e��j�󂷂�
-            Destroy(Laser, LifeTime);
+        //LifeTimeで設定した秒数後Laserを削除
+        Destroy(Laser, LifeTime);
 
     }
 }

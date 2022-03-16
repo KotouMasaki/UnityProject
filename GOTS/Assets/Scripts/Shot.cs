@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Shot : MonoBehaviour
 {
-    public float laserSpeed;
-    public float LifeTime;
+    [SerializeField]
+    private float laserSpeed;
+    [SerializeField]
+    private float LifeTime;
     private int count;
-    public GameObject Laser;
-    public GameObject firingPoint;
+
+    [SerializeField]
+    private GameObject Laser;
+    [SerializeField]
+    private GameObject firingPoint;
 
     void Update()
     {

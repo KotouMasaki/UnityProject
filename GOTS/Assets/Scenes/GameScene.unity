@@ -188,7 +188,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (1)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -249,7 +249,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (12)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -385,7 +385,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (4)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -446,7 +446,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (16)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -507,7 +507,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (5)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -568,7 +568,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (15)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -629,7 +629,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (11)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -864,7 +864,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (4)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -877,7 +877,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6742354963516128147, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_Name
-      value: Asteroid3 (1)
+      value: Asteroid3
       objectReference: {fileID: 0}
     - target: {fileID: 6742354963516534673, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_RootOrder
@@ -994,7 +994,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (6)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -1092,7 +1092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (3)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -1654,7 +1654,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (6)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -1799,7 +1799,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (2)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -1925,7 +1925,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (9)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -1938,7 +1938,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6742354963516128147, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_Name
-      value: Asteroid3(1)
+      value: Asteroid3
       objectReference: {fileID: 0}
     - target: {fileID: 6742354963516534673, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_RootOrder
@@ -2099,7 +2099,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (10)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -2244,7 +2244,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (1)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -2301,7 +2301,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (8)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -2370,7 +2370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (4)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -2431,7 +2431,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (17)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -2546,7 +2546,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6742354963516128147, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_Name
-      value: Asteroid3 (4)
+      value: Asteroid3
       objectReference: {fileID: 0}
     - target: {fileID: 6742354963516534673, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_RootOrder
@@ -2663,7 +2663,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (1)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -2732,7 +2732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (3)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -2745,7 +2745,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6742354963516128147, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_Name
-      value: Asteroid3 (3)
+      value: Asteroid3
       objectReference: {fileID: 0}
     - target: {fileID: 6742354963516534673, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_RootOrder
@@ -2870,7 +2870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (5)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -2939,7 +2939,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (3)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -3221,7 +3221,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (2)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -3234,7 +3234,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6742354963516128147, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_Name
-      value: Asteroid3 (2)
+      value: Asteroid3
       objectReference: {fileID: 0}
     - target: {fileID: 6742354963516534673, guid: 74e93b52292a94bb28c2f0bb1d86aa6e, type: 3}
       propertyPath: m_RootOrder
@@ -3363,7 +3363,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2579567683111241068, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
       propertyPath: m_Name
-      value: Asteroid 1 (6)
+      value: Asteroid 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c7c88cdedc1f49099ecf67252ed1b82, type: 3}
@@ -3424,7 +3424,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (14)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -3481,7 +3481,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (7)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -3542,7 +3542,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (13)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
@@ -3611,7 +3611,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2640726131999508817, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
       propertyPath: m_Name
-      value: Asteroid 2 (5)
+      value: Asteroid 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 188eedcc6d1ed4572b2bf3ff5b3b831f, type: 3}
@@ -3672,7 +3672,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8736018775720366636, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}
       propertyPath: m_Name
-      value: Flying Insect 1 (2)
+      value: Flying Insect 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67f38a4670222491498f3d7bed3dcc00, type: 3}

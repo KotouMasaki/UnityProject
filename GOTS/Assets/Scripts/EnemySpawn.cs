@@ -4,14 +4,22 @@ using UnityEngine;
 
 public class EnemySpawn : MonoBehaviour
 {
-    public float FastTime;
-    public float Interval;
+    [SerializeField]
+    private float FastTime;
+    [SerializeField]
+    private float Interval;
     private float second1;
     private float second2;
-    public GameObject Enemy;
-    public GameObject player;
-    public GameObject firingPoint;
-    public bool FastSpawn = true;
+    [SerializeField]
+    private bool FastSpawn;
+
+    [SerializeField]
+    private GameObject Enemy;
+    [SerializeField]
+    private GameObject player;
+    [SerializeField]
+    private GameObject firingPoint;
+    
 
     void Start()
     {

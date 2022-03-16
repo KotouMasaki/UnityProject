@@ -5,11 +5,16 @@ using UnityEngine;
 public class EnemyMove : MonoBehaviour
 {
     private float second;
-    public float wateTime1 = 1.5f;
-    public float wateTime2 = 3.0f;
-    public float wateTime3 = 4.5f;
-    public float wateTime4 = 6.0f;
-    public float deleteTime = 30;
+    [SerializeField]
+    private float wateTime1;
+    [SerializeField]
+    private float wateTime2;
+    [SerializeField]
+    private float wateTime3;
+    [SerializeField]
+    private float wateTime4;
+    [SerializeField]
+    private float deleteTime;
 
     //ç∂âEÇ…à⁄ìÆÇ∑ÇÈ
     void Update()

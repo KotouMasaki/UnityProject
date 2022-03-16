@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float Speed;
+    [SerializeField]
+    private float Speed;
     
     void Update()
     {

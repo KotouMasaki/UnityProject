@@ -387,10 +387,6 @@
 -r:"Library/Bee/artifacts/1900b0aE.dag/UnityEngine.UI.ref.dll"
 "Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/About/Scripts/Editor/ReadmeEditor.cs"
 "Assets/AssetStoreOriginals/_SNAPS_PrototypingAssets/Scripts/Editor/PackageChecker/PackageChecker.cs"
-"Assets/StarterAssets/Editor/PackageChecker/PackageChecker.cs"
-"Assets/StarterAssets/Editor/ScriptingDefineUtils.cs"
-"Assets/StarterAssets/Editor/StarterAssetsDeployMenu.cs"
-"Assets/StarterAssets/Editor/ThirdPersonStarterAssetsDeployMenu.cs"
 -langversion:9.0
 
 /deterministic

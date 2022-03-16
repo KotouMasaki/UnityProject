@@ -6,20 +6,26 @@ using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] float maxHp = 90.0f;
-    [SerializeField] float currentHp;
-    public float speed = 10.0f;
-    private Rigidbody rb;
-    private Vector3 pos;
-    //Slider������
-    public Slider slider;
-    public GameObject target;
-    public Transform targetPos;
+    [SerializeField]
+    private float maxHp;
+    [SerializeField]
+    private float currentHp;
+    [SerializeField]
+    private float speed;
     private int count;
 
+    [SerializeField]
+    private Slider slider;
+    [SerializeField]
+    private GameObject target;
+    [SerializeField]
+    private Transform targetPos;
+
+    private Rigidbody rb;
+    private Vector3 pos;
+    
     void Start()
     {
-        //Slider�𔼕��ɂ���B
         slider.value = 0.5f;
         transform.LookAt(target.transform);
         target = GameObject.Find("Target");
@@ -30,12 +36,12 @@ public class PlayerController : MonoBehaviour
     {
         count += 1;
 
-        //�W���̓����ɍ��킹�ČX����
+        //Targetを向き続ける
         transform.LookAt(target.transform);
         
         transform.Translate(0f, 0f, 0.5f);
 
-        //�W���ɊԊu�������Ă��Ă���
+        //Targetに一定距離保ってついていく
         Vector3 diff = this.transform.position - targetPos.transform.position;
         if (diff.magnitude > 10.0f)
         {
@@ -51,26 +57,21 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    //�G�ƒe�̏Փˎ���EnemyController����Ă΂��
+    //敵を倒すと呼ばれる関数
     public void AddHP()
     {
         currentHp = currentHp + 5;
         slider.value = (float)currentHp / (float)maxHp;
     }
 
-    //Collider�I�u�W�F�N�g��IsTrigger�Ƀ`�F�b�N����邱�ƁB
     private void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Enemy")
         {
             int damage = 5;
 
-            //���݂�HP����_���[�W������
+            //敵に当たるたびに体力を５づつ減らす
             currentHp = currentHp - damage;
-
-            //�ő�HP�ɂ����錻�݂�HP��Slider�ɔ��f�B
-            //int���m�̊���Z�͏����_�ȉ���0�ɂȂ�̂ŁA
-            //(float)������float�̕ϐ��Ƃ��ĐU���킹��B
             slider.value = (float)currentHp / (float)maxHp;
         }
 

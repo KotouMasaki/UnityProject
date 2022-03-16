@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class TargetController : MonoBehaviour
 {
-    public float Speed;
-    public float MaxX;
-    public float MinX;
-    public float MaxY;
-    public float MinY;
+    [SerializeField]
+    private float Speed;
+    [SerializeField]
+    private float MaxX;
+    [SerializeField]
+    private float MinX;
+    [SerializeField]
+    private float MaxY;
+    [SerializeField]
+    private float MinY;
 
     // 辞書型の変数を使う
     Dictionary<string, bool> move = new Dictionary<string, bool>
