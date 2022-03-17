@@ -5,8 +5,8 @@ using UnityEngine;
 public class ChangePosition : MonoBehaviour
 {
     private GameObject player;
-    private GameObject soldier;
-    private GameObject camera;
+    //private GameObject soldier;
+    private GameObject playCamera;
     [SerializeField]
     private Transform cameraPos;
     [SerializeField]
@@ -15,8 +15,8 @@ public class ChangePosition : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        soldier = GameObject.Find("Soldier");
-        camera = GameObject.Find("Camera");
+        //soldier = GameObject.Find("Soldier");
+        playCamera = GameObject.Find("Camera");
 
     }
 
@@ -27,7 +27,7 @@ public class ChangePosition : MonoBehaviour
 
     void ChangePosPlayer()
     {
-        camera.transform.position = cameraPos.position;
+        playCamera.transform.position = cameraPos.position;
         player.SendMessage("Warp", changePos);
     }
 }

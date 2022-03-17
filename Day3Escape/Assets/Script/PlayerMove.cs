@@ -9,9 +9,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     private float runSpeed;
     [SerializeField]
-    private float rotateSpeed = 3.0F;    //回転速度
+    private float rotateSpeed;    //回転速度
     [SerializeField]
-    private float gravity = 20.0F;       //重力の大きさ
+    private float gravity;       //重力の大きさ
     private Vector3 moveDirection = Vector3.zero;
     [SerializeField]
     private GameObject footSteps;
@@ -19,10 +19,15 @@ public class PlayerMove : MonoBehaviour
     private float walk;
     private float waitTime;
     private bool wait;
+    [SerializeField]
+    private bool Key_Lv1;
+    [SerializeField]
+    private bool Key_Lv2;
+    [SerializeField]
+    private bool Key_Lv3;
     private CharacterController controller;
     private Animator animator;
 
-    // Start is called before the first frame update
     void Start()
     {
         controller = GetComponent<CharacterController>();
@@ -31,7 +36,6 @@ public class PlayerMove : MonoBehaviour
         wait = false;
     }
 
-    // Update is called once per frame
     void Update()
     {
         h = Input.GetAxis("Horizontal");    //左右矢印キーの値(-1.0~1.0)
@@ -94,31 +98,45 @@ public class PlayerMove : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.name == "ChangePosB")
+        if (hit.gameObject.name == "Door_Lv0")
         {
-            
-            if(Input.GetKey(KeyCode.E) && !wait)
+
+            if (Input.GetKey(KeyCode.E))
             {
-                Debug.Log("HitB");
+                //Debug.Log("HitB");
                 hit.gameObject.SendMessage("ChangePosPlayer");
-                wait = true;
+                //wait = true;
             }
         }
 
-        if (hit.gameObject.name == "ChangePosA")
+        if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
         {
             
-            if (Input.GetKey(KeyCode.E) && !wait)
+            if(Input.GetKey(KeyCode.E))
             {
-                Debug.Log("HitA");
+                //Debug.Log("HitB");
                 hit.gameObject.SendMessage("ChangePosPlayer");
-                wait = true;
+                //wait = true;
             }
         }
-        if(hit.gameObject.name == "ChangeCamera")
+
+        if (hit.gameObject.name == "Door_Lv2" && Key_Lv2)
         {
-            hit.gameObject.SendMessage("ChangePosPlayer");
-            //wait = true;
+            
+            if (Input.GetKey(KeyCode.E))
+            {
+                //Debug.Log("HitA");
+                hit.gameObject.SendMessage("ChangePosPlayer");
+                //wait = true;
+            }
+        }
+
+        if(hit.gameObject.name == "Door_Lv3" && Key_Lv3)
+        {
+            if(Input.GetKey(KeyCode.E))
+            {
+                hit.gameObject.SendMessage("ChangePosPlayer");
+            }
         }
     }
 }

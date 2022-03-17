@@ -11,18 +11,18 @@ public class ChangeCamera : MonoBehaviour
     [SerializeField]
     private Transform cameraPos;
 
-    private GameObject camera;
+    private GameObject playCamera;
 
     void Start()
     {
-        camera = GameObject.Find("Camera");
+        playCamera = GameObject.Find("Camera");
     }
 
     void OnTriggerExit(Collider col)
     {
         if (col.tag == "Player")
         {
-            camera.transform.position = cameraPos.position;
+            playCamera.transform.position = cameraPos.position;
             sensor_a.SetActive(true);
             sensor_b.SetActive(false);
         }
