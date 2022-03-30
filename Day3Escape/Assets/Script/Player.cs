@@ -113,7 +113,6 @@ public class Player : MonoBehaviour
 
         if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
         {
-            
             if(Input.GetKey(KeyCode.E))
             {
                 //Debug.Log("HitB");
