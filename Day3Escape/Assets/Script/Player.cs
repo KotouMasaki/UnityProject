@@ -20,6 +20,8 @@ public class Player : MonoBehaviour
     private bool Key_Lv2;
     [SerializeField]
     private bool Key_Lv3;
+    [SerializeField] private AudioClip sound1;
+    [SerializeField] private AudioClip sound2;
 
     private float h, v;
     private float walk;
@@ -28,10 +30,12 @@ public class Player : MonoBehaviour
     private Vector3 moveDirection = Vector3.zero;
 
     private CharacterController controller;
+    private AudioSource audioSource;
     private Animator animator;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         walk = walkSpeed;
@@ -91,6 +95,7 @@ public class Player : MonoBehaviour
     {
         //　CharacterControllerコンポーネントを一旦無効化する
         controller.enabled = false;
+        audioSource.PlayOneShot(sound1);
         //　Playerの位置を変更する
         this.transform.position = transform.position;
         //　CharacterControllerコンポーネントを有効化する
@@ -147,5 +152,11 @@ public class Player : MonoBehaviour
                 hit.gameObject.SendMessage("ChangePosPlayer");
             }
         }
+    }
+
+    void Footsteps()
+    {
+        //if (sound2) return;
+        audioSource.PlayOneShot(sound2);
     }
 }
