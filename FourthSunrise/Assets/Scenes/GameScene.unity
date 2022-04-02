@@ -12444,7 +12444,7 @@ MonoBehaviour:
   StartCamPos: {fileID: 1943566972}
   Key_Lv1: 0
   Key_Lv2: 0
-  Key_Lv3: 0
+  Key_Lv3: 1
   sound1: {fileID: 8300000, guid: 4311bd86f1c623b4d9be41ce7b1f133c, type: 3}
   sound2: {fileID: 8300000, guid: e998c1d8c05627e4192dcbb27e9f1883, type: 3}
 --- !u!143 &4012842738579894683

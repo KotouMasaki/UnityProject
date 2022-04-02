@@ -113,15 +113,6 @@ public class Player : MonoBehaviour
             Warp(StartPos);
         }
 
-        if (hit.gameObject.name == "Door_Lv0")
-        {
-
-            if (Input.GetKey(KeyCode.E))
-            {
-                hit.gameObject.SendMessage("ChangePosPlayer");
-            }
-        }
-
         if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
         {
             if(Input.GetKey(KeyCode.E))
@@ -132,7 +123,6 @@ public class Player : MonoBehaviour
 
         if (hit.gameObject.name == "Door_Lv2" && Key_Lv2)
         {
-            
             if (Input.GetKey(KeyCode.E))
             {
                 hit.gameObject.SendMessage("ChangePosPlayer");
