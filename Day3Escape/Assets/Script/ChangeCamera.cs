@@ -23,8 +23,8 @@ public class ChangeCamera : MonoBehaviour
         if (col.tag == "Player")
         {
             playCamera.transform.position = cameraPos.position;
-            sensor_a.SetActive(true);
-            sensor_b.SetActive(false);
+            //sensor_a.SetActive(true);
+            //sensor_b.SetActive(false);
         }
     }
 }

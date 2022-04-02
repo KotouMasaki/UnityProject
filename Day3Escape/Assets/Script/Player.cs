@@ -13,8 +13,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     private float gravity;       //èdóÕÇÃëÂÇ´Ç≥
     [SerializeField]
-    private GameObject footSteps;
-    [SerializeField]
     private bool Key_Lv1;
     [SerializeField]
     private bool Key_Lv2;
@@ -33,6 +31,8 @@ public class Player : MonoBehaviour
     private AudioSource audioSource;
     private Animator animator;
 
+    [SerializeField] private Timer timer;
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -40,6 +40,8 @@ public class Player : MonoBehaviour
         animator = GetComponent<Animator>();
         walk = walkSpeed;
         wait = false;
+
+        //timer = GetComponentInParent<Timer>();
     }
 
     void Update()
@@ -60,8 +62,6 @@ public class Player : MonoBehaviour
                 {
                     walkSpeed = runSpeed;
                     animator.SetBool("Run", true);
-                    //Debug.Log("ê∂ê¨");
-                    //Instantiate(footSteps);
                 }
                 else
                 {
@@ -73,6 +73,11 @@ public class Player : MonoBehaviour
             else
             {
                 animator.SetFloat("Speed", 0f);
+            }
+            if(Input.GetKeyDown(KeyCode.Q))
+            {
+                Debug.Log("hi!");
+                //timer.TimeLimit();
             }
         }
         moveDirection.y -= gravity * Time.deltaTime;
