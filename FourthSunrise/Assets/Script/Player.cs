@@ -11,6 +11,7 @@ public class Player : MonoBehaviour
     [SerializeField] private GameObject WhiteLight;
     [SerializeField] private Transform StartPos;
     [SerializeField] private Transform StartCamPos;
+    [SerializeField] private GameObject Map;
     [SerializeField] private bool Key_Lv1;
     [SerializeField] private bool Key_Lv2;
     [SerializeField] private bool Key_Lv3;
@@ -19,7 +20,8 @@ public class Player : MonoBehaviour
 
     private float h, v;
     private float walk;
-    private int count;
+    private int lightCount;
+    private int MapCount;
     private int day;
     private GameObject playCamera;
     private Vector3 moveDirection = Vector3.zero;
@@ -71,16 +73,31 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Q))
             {
-                count++;
+                lightCount++;
 
-                switch(count)
+                switch(lightCount)
                 {
                     case 1:
                         WhiteLight.SetActive(true);
                         break;
                     case 2:
                         WhiteLight.SetActive(false);
-                        count = 0;
+                        lightCount = 0;
+                        break;
+                }
+            }
+            if(Input.GetKeyDown(KeyCode.Tab))
+            {
+                MapCount++;
+
+                switch(MapCount)
+                {
+                    case 1:
+                        Map.SetActive(true);
+                        break;
+                    case 2:
+                        Map.SetActive(false);
+                        MapCount = 0;
                         break;
                 }
             }
@@ -89,30 +106,31 @@ public class Player : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
-    void Warp(Transform transform)
+    void Warp(Transform ChangePos)
     {
         //　CharacterControllerコンポーネントを一旦無効化する
         controller.enabled = false;
         audioSource.PlayOneShot(sound1);
         //　Playerの位置を変更する
-        this.transform.position = transform.position;
+        this.transform.position = ChangePos.position;
         //　CharacterControllerコンポーネントを有効化する
         controller.enabled = true;
         //Debug.Log("Warp!");
     }
 
-    //void 
+    void Get_caught(Transform ChangePos)
+    {
+        //　CharacterControllerコンポーネントを一旦無効化する
+        controller.enabled = false;
+        //　Playerの位置を変更する
+        this.transform.position = ChangePos.position;
+        //　CharacterControllerコンポーネントを有効化する
+        controller.enabled = true;
+        playCamera.transform.position = StartCamPos.position;
+    }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if(hit.gameObject.tag == "Enemy")
-        {
-            day++;
-            Debug.Log(day);
-            playCamera.transform.position = StartCamPos.position;
-            Warp(StartPos);
-        }
-
         if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
         {
             if(Input.GetKey(KeyCode.E))

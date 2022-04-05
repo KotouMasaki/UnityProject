@@ -4,12 +4,7 @@ using UnityEngine;
 
 public class ChangeCamera : MonoBehaviour
 {
-    [SerializeField]
-    private GameObject sensor_a;
-    [SerializeField]
-    private GameObject sensor_b;
-    [SerializeField]
-    private Transform cameraPos;
+    [SerializeField] private Transform cameraPos;
 
     private GameObject playCamera;
 
@@ -23,8 +18,6 @@ public class ChangeCamera : MonoBehaviour
         if (col.tag == "Player")
         {
             playCamera.transform.position = cameraPos.position;
-            //sensor_a.SetActive(true);
-            //sensor_b.SetActive(false);
         }
     }
 }

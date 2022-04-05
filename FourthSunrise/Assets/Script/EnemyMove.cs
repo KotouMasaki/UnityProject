@@ -92,11 +92,11 @@ public class EnemyMove : MonoBehaviour
         }
     }
 
-    void OnTriggerEnter(Collider col)
-    {
-        if(col.tag == "Player")
-        {
-            Debug.Log("hit");
-        }
-    }
+    //void OnTriggerEnter(Collider col)
+    //{
+        //if(col.tag == "Player")
+        //{
+            //Debug.Log("hit");
+        //}
+    //}
 }
