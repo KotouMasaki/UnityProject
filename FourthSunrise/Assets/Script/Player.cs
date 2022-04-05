@@ -12,9 +12,14 @@ public class Player : MonoBehaviour
     [SerializeField] private Transform StartPos;
     [SerializeField] private Transform StartCamPos;
     [SerializeField] private GameObject Map;
+    [SerializeField] private GameObject blankMap1;
+    [SerializeField] private GameObject blankMap2;
+    [SerializeField] private GameObject FlashlightObj;
     [SerializeField] private bool Key_Lv1;
     [SerializeField] private bool Key_Lv2;
     [SerializeField] private bool Key_Lv3;
+    [SerializeField] private bool flashlight;
+    [SerializeField] private bool screwdriiver;
     [SerializeField] private AudioClip sound1;
     [SerializeField] private AudioClip sound2;
 
@@ -35,9 +40,18 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
+        playCamera = GameObject.Find("Camera");
         walk = walkSpeed;
         WhiteLight.SetActive(false);
-        playCamera = GameObject.Find("Camera");
+        Map.SetActive(false);
+        blankMap1.SetActive(false);
+        blankMap2.SetActive(false);
+        FlashlightObj.SetActive(false);
+        flashlight = false;
+        screwdriiver = false;
+        Key_Lv1 = false;
+        Key_Lv2 = false;
+        Key_Lv3 = false;
     }
 
     void Update()
@@ -71,7 +85,7 @@ public class Player : MonoBehaviour
             {
                 animator.SetFloat("Speed", 0f);
             }
-            if(Input.GetKeyDown(KeyCode.Q))
+            if(Input.GetKeyDown(KeyCode.Q) && flashlight)
             {
                 lightCount++;
 
@@ -131,35 +145,67 @@ public class Player : MonoBehaviour
 
     void OnControllerColliderHit(ControllerColliderHit hit)
     {
-        if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
+        if(hit.gameObject.tag == "Item")
         {
-            if(Input.GetKey(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                hit.gameObject.SendMessage("ChangePosPlayer");
+                if (hit.gameObject.name == "Light&Screwdriver")
+                {
+                    flashlight = true;
+                    screwdriiver = true;
+                    FlashlightObj.SetActive(true);
+                    Debug.Log("懐中電灯とマイナスドライバーを手に入れた");
+                }
+
+                if (hit.gameObject.name == "Map")
+                {
+                    blankMap1.SetActive(true);
+                    blankMap2.SetActive(true);
+                    Debug.Log("地図を手に入れた");
+                }
+
+                if (hit.gameObject.name == "Key_Lv1")
+                {
+                    Key_Lv1 = true;
+                    Debug.Log("カードキーLv1を手に入れた");
+                }
+
+                if (hit.gameObject.name == "Key_Lv2")
+                {
+                    Key_Lv2 = true;
+                    Debug.Log("カードキーLv2を手に入れた");
+                }
+                if (hit.gameObject.name == "Key_Lv3")
+                {
+                    Key_Lv3 = true;
+                    Debug.Log("カードキーLv3を手に入れた");
+                }
             }
         }
 
-        if (hit.gameObject.name == "Door_Lv2" && Key_Lv2)
+        if(hit.gameObject.tag == "Door")
         {
-            if (Input.GetKey(KeyCode.E))
+            if(Input.GetKeyDown(KeyCode.E))
             {
-                hit.gameObject.SendMessage("ChangePosPlayer");
-            }
-        }
+                if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
+                {
+                    hit.gameObject.SendMessage("ChangePosPlayer");
+                }
 
-        if(hit.gameObject.name == "Door_Lv3" && Key_Lv3)
-        {
-            if(Input.GetKey(KeyCode.E))
-            {
-                hit.gameObject.SendMessage("ChangePosPlayer");
-            }
-        }
+                if (hit.gameObject.name == "Door_Lv2" && Key_Lv2)
+                {
+                    hit.gameObject.SendMessage("ChangePosPlayer");
+                }
 
-        if (hit.gameObject.name == "Vent")
-        {
-            if (Input.GetKey(KeyCode.E))
-            {
-                hit.gameObject.SendMessage("ChangePosPlayer");
+                if (hit.gameObject.name == "Door_Lv3" && Key_Lv3)
+                {
+                    hit.gameObject.SendMessage("ChangePosPlayer");
+                }
+
+                if (hit.gameObject.name == "Vent" && screwdriiver)
+                {
+                    hit.gameObject.SendMessage("ChangePosPlayer");
+                }
             }
         }
     }

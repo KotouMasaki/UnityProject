@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5493147349876197768}
   m_Layer: 0
   m_Name: Door_Lv0
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -76,7 +76,7 @@ GameObject:
   - component: {fileID: 3831719208075740555}
   m_Layer: 0
   m_Name: Door_2
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
@@ -611,7 +611,7 @@ GameObject:
   - component: {fileID: 736829243330888861}
   m_Layer: 0
   m_Name: Door_Lv0
-  m_TagString: Untagged
+  m_TagString: Door
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 2147483647
