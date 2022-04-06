@@ -35,6 +35,7 @@ public class PlayerSearch : MonoBehaviour
             Debug.Log(diff.magnitude);
             if (diff.magnitude <= 1.5)
             {
+
                 col.gameObject.SendMessage("Get_caught", startPos);
             }
         }
