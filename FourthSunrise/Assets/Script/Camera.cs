@@ -11,11 +11,17 @@ public class Camera : MonoBehaviour
     void Start()
     {
         player = GameObject.Find("Player");
-        this.transform.position = cameraPos.position;
+        Reset_Pos();
     }
 
     void Update()
     {
         transform.LookAt(player.transform);
+    }
+
+    void Reset_Pos()
+    {
+        this.transform.position = cameraPos.position;
+        return;
     }
 }
