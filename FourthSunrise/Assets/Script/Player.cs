@@ -162,6 +162,13 @@ public class Player : MonoBehaviour
                     SceneDirector.SendMessage("Text", 4);
                     Debug.Log("カードキーLv3を手に入れた");
                 }
+                if (hit.gameObject.name == "ControlPanel")
+                {
+                    hit.gameObject.SendMessage("control_panel");
+                    hit.gameObject.SetActive(false);
+                    SceneDirector.SendMessage("Text", 6);
+                    Debug.Log("Lv.4の扉が開いたようだ");
+                }
             }
         }
 
@@ -193,7 +200,7 @@ public class Player : MonoBehaviour
 
         if(hit.gameObject.tag == "Goal")
         {
-            SceneManager.LoadScene("GameOver");
+            SceneManager.LoadScene("ClearScene");
         }
     }
 }

@@ -21,6 +21,8 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject Map;
     [SerializeField] private GameObject blankMap1;
     [SerializeField] private GameObject blankMap2;
+    [SerializeField] private GameObject floorMap01;
+    [SerializeField] private GameObject floorMap02;
     [SerializeField] private Transform StartPos;
     [SerializeField] private AudioClip clip1;
     [SerializeField] private AudioClip clip2;
@@ -38,16 +40,6 @@ public class SceneDirector : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera");
-        caught.DOFade(0f, 0f);
-        days1.DOFade(0f, 0f);
-        days2.DOFade(0f, 0f);
-        days3.DOFade(0f, 0f);
-        text1.DOFade(0f, 0f);
-        text2.DOFade(0f, 0f);
-        text3.DOFade(0f, 0f);
-        text4.DOFade(0f, 0f);
-        text5.DOFade(0f, 0f);
-        text6.DOFade(0f, 0f);
         Map.SetActive(false);
         blankMap1.SetActive(false);
         blankMap2.SetActive(false);
@@ -156,10 +148,11 @@ public class SceneDirector : MonoBehaviour
 
     IEnumerator NextDay()
     {
+        floorMap02.SetActive(false);
         audioSource.PlayOneShot(clip1);
         day--;
         Debug.Log(day);
-        if(day == 0) ChangeScene();
+        //if(day == 0) ChangeScene();
         backImage.DOFade(0.75f, 2f);
         caught.DOFade(1f, 2f);
         yield return new WaitForSeconds(5);
@@ -174,10 +167,14 @@ public class SceneDirector : MonoBehaviour
             case 1:
                 days1.DOFade(1f, 0f);
                 break;
+            case 0:
+                ChangeScene();
+                break;
         }
         yield return new WaitForSeconds(2);
         days2.DOFade(0f, 2f);
         days1.DOFade(0f, 2f);
+        floorMap01.SetActive(true);
         camera.SendMessage("Reset_Pos");
         player.SendMessage("Warp", StartPos);
     }
