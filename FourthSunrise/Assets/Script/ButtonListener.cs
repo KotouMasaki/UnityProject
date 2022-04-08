@@ -10,18 +10,9 @@ public class ButtonListener : MonoBehaviour
     [SerializeField] private bool quitGame;
     [SerializeField] private GameObject UI_image;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚ÌŒÄ‚Î‚ê‚éŠÖ”
+    /// </summary>
     public void OnClick()
     {
         if(UI_display)

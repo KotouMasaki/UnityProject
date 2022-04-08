@@ -25,12 +25,9 @@ public class ChangePosition : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
 
     }
-
-    void Update()
-    {
-        
-    }
-
+    /// <summary>
+    /// Playerの場所を変える時にマップを更新する関数
+    /// </summary>
     void ChangePosPlayer()
     {
         audioSource.PlayOneShot(clip1);

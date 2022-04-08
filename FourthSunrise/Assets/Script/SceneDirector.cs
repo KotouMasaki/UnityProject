@@ -48,16 +48,26 @@ public class SceneDirector : MonoBehaviour
         StartCoroutine("Opening");
     }
 
+    /// <summary>
+    /// フェードアウト演出
+    /// </summary>
     void BackFadeOut()
     {
         backImage.DOFade(1f, 0f);
     }
 
+    /// <summary>
+    /// フェードイン演出
+    /// </summary>
     void BackFadeIn()
     {
         backImage.DOFade(0f, 2f);
     }
 
+    /// <summary>
+    /// アイテム入手時の演出
+    /// </summary>
+    /// <param name="num">switch文のための引数</param>
     void Text(int num)
     {
         audioSource.PlayOneShot(clip2);
@@ -90,6 +100,9 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// マップ表示、非表示の関数
+    /// </summary>
     void Show_Map()
     {
         MapCount++;
@@ -106,12 +119,18 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// マップを入手した時のフラグ
+    /// </summary>
     void Flag_Map()
     {
         blankMap1.SetActive(true);
         blankMap2.SetActive(true);
     }
 
+    /// <summary>
+    /// 敵に捕まった時の演出
+    /// </summary>
     void Get_caught()
     {
         if(!is_returned)
@@ -125,17 +144,18 @@ public class SceneDirector : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// 捕まった時の演出が何回も呼ばれないようにする
+    /// </summary>
     void Returned()
     {
         is_returned = false;
         return;
     }
-
-    void ChangeScene()
-    {
-        SceneManager.LoadScene("GameOver");
-    }
-
+    /// <summary>
+    /// ゲーム開始時の演出のコルーチン関数
+    /// </summary>
+    /// <returns></returns>
     IEnumerator Opening()
     {
         audioSource.PlayOneShot(clip3);
@@ -146,6 +166,10 @@ public class SceneDirector : MonoBehaviour
         BackFadeIn();
     }
 
+    /// <summary>
+    /// 捕まった時の演出のコルーチン関数
+    /// </summary>
+    /// <returns></returns>
     IEnumerator NextDay()
     {
         floorMap02.SetActive(false);
@@ -168,7 +192,7 @@ public class SceneDirector : MonoBehaviour
                 days1.DOFade(1f, 0f);
                 break;
             case 0:
-                ChangeScene();
+                SceneManager.LoadScene("GameOver");
                 break;
         }
         yield return new WaitForSeconds(2);

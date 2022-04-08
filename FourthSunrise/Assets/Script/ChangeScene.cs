@@ -19,11 +19,18 @@ public class ChangeScene : MonoBehaviour
         if (fadeIn) StartCoroutine("FadeIn");
     }
 
+    /// <summary>
+    /// 画面遷移をするボタン用の関数
+    /// </summary>
     public void OnClickChangeScene()
     {
         StartCoroutine("FadeOut");
     }
 
+    /// <summary>
+    /// フェードアウト演出
+    /// </summary>
+    /// <returns></returns>
     IEnumerator FadeOut()
     {
         if (fadeOut)
@@ -38,6 +45,10 @@ public class ChangeScene : MonoBehaviour
         if (TitleScene) SceneManager.LoadScene("TitleScene");
     }
 
+    /// <summary>
+    /// フェードイン演出
+    /// </summary>
+    /// <returns></returns>
     IEnumerator FadeIn()
     {
         backImageA.DOFade(0f, 3f);

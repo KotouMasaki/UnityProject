@@ -5,11 +5,12 @@ using UnityEngine.AI;
 
 public class EnemyMove : MonoBehaviour
 {
-    public Transform[] points;
-    public Transform player;
-    public float walkSpeed;
-    public float chaseSpeed;
-    private int destPoint = 0;
+    [SerializeField] public Transform[] points;
+    [SerializeField] public Transform player;
+    [SerializeField] public float walkSpeed;
+    [SerializeField] public float chaseSpeed;
+
+    private int destPoint;
     private bool find;
     private EnemyState state;   // 敵の状態
     private NavMeshAgent agent;
@@ -28,15 +29,16 @@ public class EnemyMove : MonoBehaviour
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
         agent.autoBraking = false;
-        //animator.SetBool("Speed", true);
+        destPoint = 0;
         SetState(EnemyState.Walk);
         GotoNextPoint();
     }
 
-
+    /// <summary>
+    /// 次の目標地点をセットする
+    /// </summary>
     void GotoNextPoint()
     {
-        //Debug.Log("次の目標へ");
         // 地点がなにも設定されていないときに返します
         if (points.Length == 0)
         {
@@ -52,6 +54,11 @@ public class EnemyMove : MonoBehaviour
         destPoint = (destPoint + 1) % points.Length;
     }
 
+    /// <summary>
+    /// 敵の状態を設定する
+    /// </summary>
+    /// <param name="tempState">変更したい敵の状態</param>
+    /// <param name="targetObj">目標物</param>
     public void SetState(EnemyState tempState, Transform targetObj = null)
     {
         if(tempState == EnemyState.Walk)

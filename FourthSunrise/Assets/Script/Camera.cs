@@ -16,9 +16,13 @@ public class Camera : MonoBehaviour
 
     void Update()
     {
+        //常にPlayerを向き続ける
         transform.LookAt(player.transform);
     }
 
+    /// <summary>
+    /// カメラを開始地点に戻す
+    /// </summary>
     void Reset_Pos()
     {
         this.transform.position = cameraPos.position;

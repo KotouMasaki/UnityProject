@@ -22,7 +22,6 @@ public class Player : MonoBehaviour
     private float walk;
     private int lightCount;
     private int MapCount;
-    //private int day;
     private GameObject playCamera;
     private GameObject SceneDirector;
     private Vector3 moveDirection = Vector3.zero;
@@ -79,6 +78,8 @@ public class Player : MonoBehaviour
             {
                 animator.SetFloat("Speed", 0f);
             }
+
+            //懐中電灯をつける
             if(Input.GetKeyDown(KeyCode.Q) && flashlight)
             {
                 lightCount++;
@@ -94,6 +95,8 @@ public class Player : MonoBehaviour
                         break;
                 }
             }
+
+            //マップを開く
             if(Input.GetKeyDown(KeyCode.Tab))
             {
                 SceneDirector.SendMessage("Show_Map");
@@ -103,6 +106,10 @@ public class Player : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
     }
 
+    /// <summary>
+    /// 場所を変える時に使う関数
+    /// </summary>
+    /// <param name="ChangePos"></param>
     void Warp(Transform ChangePos)
     {
         SceneDirector.SendMessage("BackFadeOut");

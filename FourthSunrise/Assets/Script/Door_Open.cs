@@ -8,6 +8,9 @@ public class Door_Open : MonoBehaviour
     [SerializeField] private GameObject lv3_Door2;
     [SerializeField] private GameObject lv4_Door;
 
+    /// <summary>
+    /// ƒhƒA‚ðŠJ•Â‚·‚é
+    /// </summary>
     void control_panel()
     {
         lv3_Door1.SetActive(true);

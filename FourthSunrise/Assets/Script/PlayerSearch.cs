@@ -7,7 +7,6 @@ public class PlayerSearch : MonoBehaviour
 {
     [SerializeField] private EnemyMove enemyMove;
     [SerializeField] private LayerMask obstacleLayer;
-    //[SerializeField] private Transform startPos;
 
     private GameObject SceneDirector;
 
@@ -26,12 +25,11 @@ public class PlayerSearch : MonoBehaviour
             EnemyMove.EnemyState state = enemyMove.GetState();
 
             Debug.DrawLine(transform.position + Vector3.up, col.transform.position + Vector3.up, Color.blue);
-            //Debug.Log(transform.position - col.transform.position);
+
             //　サーチする角度内だったら発見
             if ((state == EnemyMove.EnemyState.Walk)
                 && !Physics.Linecast(transform.position + Vector3.up, col.transform.position + Vector3.up, obstacleLayer))
             {
-                //Debug.Log("主人公を発見");
                 enemyMove.SetState(EnemyMove.EnemyState.Chase, col.transform);
             }
             Vector3 diff = transform.position - col.transform.position;
