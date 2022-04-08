@@ -16,12 +16,14 @@ public class ChangePosition : MonoBehaviour
 
     private GameObject player;
     private GameObject playCamera;
+    private GameObject SceneDirector;
     private AudioSource audioSource;
 
     void Start()
     {
         player = GameObject.Find("Player");
         playCamera = GameObject.Find("Camera");
+        SceneDirector = GameObject.Find("SceneDirector");
         audioSource = GetComponent<AudioSource>();
 
     }
@@ -36,8 +38,9 @@ public class ChangePosition : MonoBehaviour
         Map3.SetActive(false);
         Map1.SetActive(true);
         Map2.SetActive(true);
-        
-        if(Map4 == null && Map5 == null)
+        SceneDirector.SendMessage("Get_Object",Map2);
+
+        if (Map4 == null && Map5 == null)
         {
             return;
         }

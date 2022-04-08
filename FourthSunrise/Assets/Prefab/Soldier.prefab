@@ -43,8 +43,8 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 4
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Radius: 6
+  m_Center: {x: 4, y: 0, z: 0}
 --- !u!1 &6262788651957814919
 GameObject:
   m_ObjectHideFlags: 0
@@ -2663,7 +2663,7 @@ MonoBehaviour:
   - {fileID: 0}
   player: {fileID: 0}
   walkSpeed: 2
-  chaseSpeed: 4.1
+  chaseSpeed: 3.8
 --- !u!114 &6322341033475682160
 MonoBehaviour:
   m_ObjectHideFlags: 0

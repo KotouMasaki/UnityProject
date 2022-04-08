@@ -23,11 +23,18 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject blankMap2;
     [SerializeField] private GameObject floorMap01;
     [SerializeField] private GameObject floorMap02;
+    [SerializeField] private GameObject screwdriver;
+    [SerializeField] private GameObject flashlight;
+    [SerializeField] private GameObject map;
+    [SerializeField] private GameObject greenCade;
+    [SerializeField] private GameObject blueCade;
+    [SerializeField] private GameObject redCade;
     [SerializeField] private Transform StartPos;
     [SerializeField] private AudioClip clip1;
     [SerializeField] private AudioClip clip2;
     [SerializeField] private AudioClip clip3;
 
+    private GameObject activeMap;
     private new GameObject camera;
     private AudioSource audioSource;
     private GameObject player;
@@ -74,22 +81,28 @@ public class SceneDirector : MonoBehaviour
         switch (num)
         {
             case 1:
+                screwdriver.SetActive(true);
+                flashlight.SetActive(true);
                 text1.DOFade(1f, 0f);
                 text1.DOFade(0f, 5f);
                 break;
             case 2:
+                greenCade.SetActive(true);
                 text2.DOFade(1f, 0f);
                 text2.DOFade(0f, 5f);
                 break;
             case 3:
+                blueCade.SetActive(true);
                 text3.DOFade(1f, 0f);
                 text3.DOFade(0f, 5f);
                 break;
             case 4:
+                redCade.SetActive(true);
                 text4.DOFade(1f, 0f);
                 text4.DOFade(0f, 5f);
                 break;
             case 5:
+                map.SetActive(true);
                 text5.DOFade(1f, 0f);
                 text5.DOFade(0f, 5f);
                 break;
@@ -129,7 +142,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// 敵に捕まった時の演出
+    /// 敵に捕まった時の演出を呼び出す関数
     /// </summary>
     void Get_caught()
     {
@@ -152,6 +165,13 @@ public class SceneDirector : MonoBehaviour
         is_returned = false;
         return;
     }
+
+    void Get_Object(GameObject ActiveMap)
+    {
+        activeMap = ActiveMap;
+        Debug.Log(activeMap);
+    }
+
     /// <summary>
     /// ゲーム開始時の演出のコルーチン関数
     /// </summary>
@@ -173,10 +193,10 @@ public class SceneDirector : MonoBehaviour
     IEnumerator NextDay()
     {
         floorMap02.SetActive(false);
+        activeMap.SetActive(false);
         audioSource.PlayOneShot(clip1);
         day--;
         Debug.Log(day);
-        //if(day == 0) ChangeScene();
         backImage.DOFade(0.75f, 2f);
         caught.DOFade(1f, 2f);
         yield return new WaitForSeconds(5);

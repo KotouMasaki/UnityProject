@@ -10,10 +10,12 @@ public class ChangeCamera : MonoBehaviour
     [SerializeField] private GameObject Map3;
 
     private GameObject playCamera;
+    private GameObject SceneDirector;
 
     void Start()
     {
         playCamera = GameObject.Find("Camera");
+        SceneDirector = GameObject.Find("SceneDirector");
     }
 
     void OnTriggerExit(Collider col)
@@ -32,6 +34,7 @@ public class ChangeCamera : MonoBehaviour
                 Map1.SetActive(true);
                 Map2.SetActive(true);
                 Map3.SetActive(false);
+                SceneDirector.SendMessage("Get_Object",Map2);
             }
         }
     }
