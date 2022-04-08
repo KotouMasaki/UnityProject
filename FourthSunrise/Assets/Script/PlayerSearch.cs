@@ -9,12 +9,12 @@ public class PlayerSearch : MonoBehaviour
     [SerializeField] private LayerMask obstacleLayer;
     //[SerializeField] private Transform startPos;
 
-    private GameObject ui_Director;
+    private GameObject SceneDirector;
 
     void Start()
     {
         enemyMove = GetComponentInParent<EnemyMove>();
-        ui_Director = GameObject.Find("UI_Director");
+        SceneDirector = GameObject.Find("SceneDirector");
     }
 
     void OnTriggerStay(Collider col)
@@ -39,7 +39,7 @@ public class PlayerSearch : MonoBehaviour
             if (diff.magnitude <= 1.5)
             {
 
-                ui_Director.SendMessage("Get_caught");
+                SceneDirector.SendMessage("Get_caught");
                 enemyMove.SetState(EnemyMove.EnemyState.Walk);
             }
         }

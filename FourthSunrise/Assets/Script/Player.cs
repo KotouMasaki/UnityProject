@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class Player : MonoBehaviour
     private int MapCount;
     //private int day;
     private GameObject playCamera;
-    private GameObject ui_Director;
+    private GameObject SceneDirector;
     private Vector3 moveDirection = Vector3.zero;
 
     private CharacterController controller;
@@ -36,7 +37,7 @@ public class Player : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>();
         playCamera = GameObject.Find("Camera");
-        ui_Director = GameObject.Find("UI_Director");
+        SceneDirector = GameObject.Find("SceneDirector");
         walk = walkSpeed;
         WhiteLight.SetActive(false);
         FlashlightObj.SetActive(false);
@@ -95,7 +96,7 @@ public class Player : MonoBehaviour
             }
             if(Input.GetKeyDown(KeyCode.Tab))
             {
-                ui_Director.SendMessage("Show_Map");
+                SceneDirector.SendMessage("Show_Map");
             }
         }
         moveDirection.y -= gravity * Time.deltaTime;
@@ -104,15 +105,15 @@ public class Player : MonoBehaviour
 
     void Warp(Transform ChangePos)
     {
-        ui_Director.SendMessage("BackFadeOut");
+        SceneDirector.SendMessage("BackFadeOut");
         //　CharacterControllerコンポーネントを一旦無効化する
         controller.enabled = false;
         //　Playerの位置を変更する
         this.transform.position = ChangePos.position;
         //　CharacterControllerコンポーネントを有効化する
         controller.enabled = true;
-        ui_Director.SendMessage("Returned");
-        ui_Director.SendMessage("BackFadeIn");
+        SceneDirector.SendMessage("Returned");
+        SceneDirector.SendMessage("BackFadeIn");
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -123,37 +124,42 @@ public class Player : MonoBehaviour
             {
                 if (hit.gameObject.name == "Light&Screwdriver")
                 {
+                    hit.gameObject.SetActive(false);
                     flashlight = true;
                     screwdriiver = true;
                     FlashlightObj.SetActive(true);
-                    ui_Director.SendMessage("Text", 1);
+                    SceneDirector.SendMessage("Text", 1);
                     Debug.Log("懐中電灯とマイナスドライバーを手に入れた");
                 }
 
                 if (hit.gameObject.name == "Map")
                 {
-                    ui_Director.SendMessage("Flag_Map");
-                    ui_Director.SendMessage("Text", 5);
+                    hit.gameObject.SetActive(false);
+                    SceneDirector.SendMessage("Flag_Map");
+                    SceneDirector.SendMessage("Text", 5);
                     Debug.Log("地図を手に入れた");
                 }
 
                 if (hit.gameObject.name == "Key_Lv1")
                 {
+                    hit.gameObject.SetActive(false);
                     Key_Lv1 = true;
-                    ui_Director.SendMessage("Text", 2);
+                    SceneDirector.SendMessage("Text", 2);
                     Debug.Log("カードキーLv1を手に入れた");
                 }
 
                 if (hit.gameObject.name == "Key_Lv2")
                 {
+                    hit.gameObject.SetActive(false);
                     Key_Lv2 = true;
-                    ui_Director.SendMessage("Text", 3);
+                    SceneDirector.SendMessage("Text", 3);
                     Debug.Log("カードキーLv2を手に入れた");
                 }
                 if (hit.gameObject.name == "Key_Lv3")
                 {
+                    hit.gameObject.SetActive(false);
                     Key_Lv3 = true;
-                    ui_Director.SendMessage("Text", 4);
+                    SceneDirector.SendMessage("Text", 4);
                     Debug.Log("カードキーLv3を手に入れた");
                 }
             }
@@ -183,6 +189,11 @@ public class Player : MonoBehaviour
                     hit.gameObject.SendMessage("ChangePosPlayer");
                 }
             }
+        }
+
+        if(hit.gameObject.tag == "Goal")
+        {
+            SceneManager.LoadScene("GameOver");
         }
     }
 }

@@ -9,13 +9,10 @@ public class EnemyMove : MonoBehaviour
     public Transform player;
     public float walkSpeed;
     public float chaseSpeed;
-    [SerializeField] private AudioClip sound1;
     private int destPoint = 0;
     private bool find;
-    // 敵の状態
-    private EnemyState state;
+    private EnemyState state;   // 敵の状態
     private NavMeshAgent agent;
-    private AudioSource audioSource;
     private Animator animator;
 
     public enum EnemyState
@@ -28,7 +25,6 @@ public class EnemyMove : MonoBehaviour
     {
         agent = GetComponent<NavMeshAgent>();
         animator = GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
 
         // autoBraking を無効にすると、目標地点の間を継続的に移動します
         agent.autoBraking = false;
@@ -91,12 +87,4 @@ public class EnemyMove : MonoBehaviour
             }
         }
     }
-
-    //void OnTriggerEnter(Collider col)
-    //{
-        //if(col.tag == "Player")
-        //{
-            //Debug.Log("hit");
-        //}
-    //}
 }

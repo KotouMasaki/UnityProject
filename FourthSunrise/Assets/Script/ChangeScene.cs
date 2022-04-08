@@ -1,34 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+using DG.Tweening;
 using UnityEngine.SceneManagement;
 
 public class ChangeScene : MonoBehaviour
 {
     [SerializeField] private bool GameScene;
     [SerializeField] private bool TitleScene;
+    [SerializeField] private bool fadeIn;
+    [SerializeField] private bool fadeOut;
+    [SerializeField] private Image backImageA;
+    [SerializeField] private GameObject backImageB;
 
-    // Start is called before the first frame update
     void Start()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (fadeIn) StartCoroutine("FadeIn");
     }
 
     public void OnClickChangeScene()
     {
-        if(GameScene)
+        StartCoroutine("FadeOut");
+    }
+
+    IEnumerator FadeOut()
+    {
+        if (fadeOut)
         {
-            SceneManager.LoadScene("GameScene");
+            backImageB.SetActive(true);
+            backImageA.DOFade(1f, 2f);
         }
-        if(TitleScene)
-        {
-            SceneManager.LoadScene("TitleScene");
-        }
+
+        yield return new WaitForSeconds(3);
+        
+        if (GameScene) SceneManager.LoadScene("GameScene");
+        if (TitleScene) SceneManager.LoadScene("TitleScene");
+    }
+
+    IEnumerator FadeIn()
+    {
+        backImageA.DOFade(0f, 3f);
+
+        yield return new WaitForSeconds(3);
+
+        backImageB.SetActive(false);
     }
 }

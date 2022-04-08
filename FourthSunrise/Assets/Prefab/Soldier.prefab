@@ -43,7 +43,7 @@ SphereCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Radius: 6
+  m_Radius: 4
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &6262788651957814919
 GameObject:
@@ -2662,9 +2662,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   player: {fileID: 0}
-  walkSpeed: 1
-  chaseSpeed: 1.5
-  sound1: {fileID: 8300000, guid: e998c1d8c05627e4192dcbb27e9f1883, type: 3}
+  walkSpeed: 2
+  chaseSpeed: 4.1
 --- !u!114 &6322341033475682160
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2707,17 +2706,17 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 0
+  m_audioClip: {fileID: 8300000, guid: e998c1d8c05627e4192dcbb27e9f1883, type: 3}
+  m_PlayOnAwake: 1
   m_Volume: 0.5
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
   DopplerLevel: 5
-  MinDistance: 1
+  MinDistance: 25
   MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
@@ -2753,7 +2752,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0

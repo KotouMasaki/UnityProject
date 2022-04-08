@@ -5,7 +5,7 @@ using UnityEngine.UI;
 using DG.Tweening;
 using UnityEngine.SceneManagement;
 
-public class UI_Director : MonoBehaviour
+public class SceneDirector : MonoBehaviour
 {
     [SerializeField] private Image backImage;
     [SerializeField] private Text caught;
@@ -22,8 +22,12 @@ public class UI_Director : MonoBehaviour
     [SerializeField] private GameObject blankMap1;
     [SerializeField] private GameObject blankMap2;
     [SerializeField] private Transform StartPos;
+    [SerializeField] private AudioClip clip1;
+    [SerializeField] private AudioClip clip2;
+    [SerializeField] private AudioClip clip3;
 
     private new GameObject camera;
+    private AudioSource audioSource;
     private GameObject player;
     private bool is_returned;
     private int MapCount;
@@ -31,6 +35,7 @@ public class UI_Director : MonoBehaviour
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         player = GameObject.Find("Player");
         camera = GameObject.Find("Camera");
         caught.DOFade(0f, 0f);
@@ -63,6 +68,7 @@ public class UI_Director : MonoBehaviour
 
     void Text(int num)
     {
+        audioSource.PlayOneShot(clip2);
         switch (num)
         {
             case 1:
@@ -140,6 +146,7 @@ public class UI_Director : MonoBehaviour
 
     IEnumerator Opening()
     {
+        audioSource.PlayOneShot(clip3);
         backImage.DOFade(1f, 0f);
         days3.DOFade(1f, 0f);
         yield return new WaitForSeconds(2);
@@ -149,11 +156,14 @@ public class UI_Director : MonoBehaviour
 
     IEnumerator NextDay()
     {
+        audioSource.PlayOneShot(clip1);
         day--;
         Debug.Log(day);
+        if(day == 0) ChangeScene();
         backImage.DOFade(0.75f, 2f);
         caught.DOFade(1f, 2f);
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(5);
+        audioSource.PlayOneShot(clip3);
         caught.DOFade(0f, 0f);
         backImage.DOFade(1f, 0f);
         switch(day)
@@ -163,9 +173,6 @@ public class UI_Director : MonoBehaviour
                 break;
             case 1:
                 days1.DOFade(1f, 0f);
-                break;
-            case 0:
-                ChangeScene();
                 break;
         }
         yield return new WaitForSeconds(2);

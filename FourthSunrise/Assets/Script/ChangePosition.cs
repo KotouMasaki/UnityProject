@@ -12,14 +12,17 @@ public class ChangePosition : MonoBehaviour
     [SerializeField] private GameObject Map3;
     [SerializeField] private GameObject Map4;
     [SerializeField] private GameObject Map5;
+    [SerializeField] private AudioClip clip1;
 
     private GameObject player;
     private GameObject playCamera;
+    private AudioSource audioSource;
 
     void Start()
     {
         player = GameObject.Find("Player");
         playCamera = GameObject.Find("Camera");
+        audioSource = GetComponent<AudioSource>();
 
     }
 
@@ -30,6 +33,7 @@ public class ChangePosition : MonoBehaviour
 
     void ChangePosPlayer()
     {
+        audioSource.PlayOneShot(clip1);
         playCamera.transform.position = cameraPos.position;
         player.SendMessage("Warp", changePos);
         Map3.SetActive(false);
