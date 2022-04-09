@@ -32,6 +32,10 @@ public class PlayerSearch : MonoBehaviour
             {
                 enemyMove.SetState(EnemyMove.EnemyState.Chase, col.transform);
             }
+            else
+            {
+                enemyMove.SetState(EnemyMove.EnemyState.Walk);
+            }
             Vector3 diff = transform.position - col.transform.position;
             Debug.Log(diff.magnitude);
             if (diff.magnitude <= 1.5)

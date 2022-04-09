@@ -9,9 +9,7 @@ public class SceneDirector : MonoBehaviour
 {
     [SerializeField] private Image backImage;
     [SerializeField] private Text caught;
-    [SerializeField] private Text days1;
-    [SerializeField] private Text days2;
-    [SerializeField] private Text days3;
+    [SerializeField] private Text re_days;
     [SerializeField] private Text text1;
     [SerializeField] private Text text2;
     [SerializeField] private Text text3;
@@ -26,6 +24,7 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private GameObject blankMap2;
     [SerializeField] private GameObject floorMap01;
     [SerializeField] private GameObject floorMap02;
+    [SerializeField] private GameObject startMap;
     [SerializeField] private GameObject screwdriver;
     [SerializeField] private GameObject greenCade;
     [SerializeField] private GameObject blueCade;
@@ -37,8 +36,8 @@ public class SceneDirector : MonoBehaviour
 
     private GameObject activeMap;
     private new GameObject camera;
-    private AudioSource audioSource;
     private GameObject player;
+    private AudioSource audioSource;
     private bool is_returned;
     private int MapCount;
     private int MiniMapCount;
@@ -53,7 +52,7 @@ public class SceneDirector : MonoBehaviour
         blankMap1.SetActive(false);
         blankMap2.SetActive(false);
         is_returned = false;
-        day = 3;
+        day = 5;
         StartCoroutine("Opening");
     }
 
@@ -211,11 +210,12 @@ public class SceneDirector : MonoBehaviour
     /// <returns></returns>
     IEnumerator Opening()
     {
+        re_days.SendMessage("Rewrite", day);
         audioSource.PlayOneShot(clip3);
         backImage.DOFade(1f, 0f);
-        days3.DOFade(1f, 0f);
-        yield return new WaitForSeconds(2);
-        days3.DOFade(0f, 2f);
+        re_days.DOFade(1f, 0f);
+        yield return new WaitForSeconds(1);
+        re_days.DOFade(0f, 2f);
         BackFadeIn();
     }
 
@@ -236,22 +236,13 @@ public class SceneDirector : MonoBehaviour
         audioSource.PlayOneShot(clip3);
         caught.DOFade(0f, 0f);
         backImage.DOFade(1f, 0f);
-        switch(day)
-        {
-            case 2:
-                days2.DOFade(1f, 0f);
-                break;
-            case 1:
-                days1.DOFade(1f, 0f);
-                break;
-            case 0:
-                SceneManager.LoadScene("GameOver");
-                break;
-        }
+        if(day == 0) SceneManager.LoadScene("GameOver");
+        re_days.SendMessage("Rewrite",day);
+        re_days.DOFade(1f, 2f);
         yield return new WaitForSeconds(2);
-        days2.DOFade(0f, 2f);
-        days1.DOFade(0f, 2f);
+        re_days.DOFade(0f, 2f);
         floorMap01.SetActive(true);
+        startMap.SetActive(true);
         camera.SendMessage("Reset_Pos");
         player.SendMessage("Warp", StartPos);
     }
