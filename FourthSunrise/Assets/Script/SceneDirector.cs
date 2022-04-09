@@ -18,14 +18,15 @@ public class SceneDirector : MonoBehaviour
     [SerializeField] private Text text4;
     [SerializeField] private Text text5;
     [SerializeField] private Text text6;
+    [SerializeField] private Text text7;
     [SerializeField] private GameObject Map;
+    [SerializeField] private GameObject miniMap;
+    [SerializeField] private GameObject look_up;
     [SerializeField] private GameObject blankMap1;
     [SerializeField] private GameObject blankMap2;
     [SerializeField] private GameObject floorMap01;
     [SerializeField] private GameObject floorMap02;
     [SerializeField] private GameObject screwdriver;
-    [SerializeField] private GameObject flashlight;
-    [SerializeField] private GameObject map;
     [SerializeField] private GameObject greenCade;
     [SerializeField] private GameObject blueCade;
     [SerializeField] private GameObject redCade;
@@ -40,6 +41,7 @@ public class SceneDirector : MonoBehaviour
     private GameObject player;
     private bool is_returned;
     private int MapCount;
+    private int MiniMapCount;
     private int day;
 
     void Start()
@@ -82,7 +84,6 @@ public class SceneDirector : MonoBehaviour
         {
             case 1:
                 screwdriver.SetActive(true);
-                flashlight.SetActive(true);
                 text1.DOFade(1f, 0f);
                 text1.DOFade(0f, 5f);
                 break;
@@ -102,13 +103,16 @@ public class SceneDirector : MonoBehaviour
                 text4.DOFade(0f, 5f);
                 break;
             case 5:
-                map.SetActive(true);
                 text5.DOFade(1f, 0f);
                 text5.DOFade(0f, 5f);
                 break;
             case 6:
                 text6.DOFade(1f, 0f);
                 text6.DOFade(0f, 5f);
+                break;
+            case 7:
+                text7.DOFade(1f, 0f);
+                text7.DOFade(0f, 5f);
                 break;
         }
     }
@@ -128,6 +132,35 @@ public class SceneDirector : MonoBehaviour
             case 2:
                 Map.SetActive(false);
                 MapCount = 0;
+                break;
+        }
+    }
+
+    void Show_MiniMap()
+    {
+        MiniMapCount++;
+
+        switch (MiniMapCount)
+        {
+            case 1:
+                miniMap.SetActive(true);
+                break;
+            case 2:
+                miniMap.SetActive(false);
+                MiniMapCount = 0;
+                break;
+        }
+    }
+
+    void Look_Up(int num)
+    {
+        switch (num)
+        {
+            case 1:
+                look_up.SetActive(true);
+                break;
+            case 2:
+                look_up.SetActive(false);
                 break;
         }
     }

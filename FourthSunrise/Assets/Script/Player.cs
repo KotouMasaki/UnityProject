@@ -20,8 +20,8 @@ public class Player : MonoBehaviour
 
     private float h, v;
     private float walk;
+    private bool look_up;
     private int lightCount;
-    private int MapCount;
     private GameObject playCamera;
     private GameObject SceneDirector;
     private Vector3 moveDirection = Vector3.zero;
@@ -101,6 +101,11 @@ public class Player : MonoBehaviour
             {
                 SceneDirector.SendMessage("Show_Map");
             }
+
+            if (Input.GetKeyDown(KeyCode.R))
+            {
+                SceneDirector.SendMessage("Show_MiniMap");
+            }
         }
         moveDirection.y -= gravity * Time.deltaTime;
         controller.Move(moveDirection * Time.deltaTime);
@@ -127,7 +132,9 @@ public class Player : MonoBehaviour
     {
         if(hit.gameObject.tag == "Item")
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            SceneDirector.SendMessage("Look_Up",1);
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
                 if (hit.gameObject.name == "Light&Screwdriver")
                 {
@@ -162,6 +169,7 @@ public class Player : MonoBehaviour
                     SceneDirector.SendMessage("Text", 3);
                     Debug.Log("カードキーLv2を手に入れた");
                 }
+
                 if (hit.gameObject.name == "Key_Lv3")
                 {
                     hit.gameObject.SetActive(false);
@@ -169,6 +177,7 @@ public class Player : MonoBehaviour
                     SceneDirector.SendMessage("Text", 4);
                     Debug.Log("カードキーLv3を手に入れた");
                 }
+
                 if (hit.gameObject.name == "ControlPanel")
                 {
                     hit.gameObject.SendMessage("control_panel");
@@ -178,31 +187,69 @@ public class Player : MonoBehaviour
                 }
             }
         }
+        else
+        {
+            SceneDirector.SendMessage("Look_Up", 2);
+        }
 
         if(hit.gameObject.tag == "Door")
         {
-            if(Input.GetKeyDown(KeyCode.E))
+            SceneDirector.SendMessage("Look_Up", 1);
+
+            if (Input.GetKeyDown(KeyCode.E))
             {
-                if (hit.gameObject.name == "Door_Lv1" && Key_Lv1)
+                if (hit.gameObject.name == "Door_Lv1")
                 {
-                    hit.gameObject.SendMessage("ChangePosPlayer");
+                    if(Key_Lv1)
+                    {
+                        hit.gameObject.SendMessage("ChangePosPlayer");
+                    }
+                    else
+                    {
+                        SceneDirector.SendMessage("Text", 7);
+                    }
                 }
 
-                if (hit.gameObject.name == "Door_Lv2" && Key_Lv2)
+                if (hit.gameObject.name == "Door_Lv2")
                 {
-                    hit.gameObject.SendMessage("ChangePosPlayer");
+                    if (Key_Lv2)
+                    {
+                        hit.gameObject.SendMessage("ChangePosPlayer");
+                    }
+                    else
+                    {
+                        SceneDirector.SendMessage("Text", 7);
+                    }
                 }
 
-                if (hit.gameObject.name == "Door_Lv3" && Key_Lv3)
+                if (hit.gameObject.name == "Door_Lv3")
                 {
-                    hit.gameObject.SendMessage("ChangePosPlayer");
+                    if (Key_Lv3)
+                    {
+                        hit.gameObject.SendMessage("ChangePosPlayer");
+                    }
+                    else
+                    {
+                        SceneDirector.SendMessage("Text", 7);
+                    }
                 }
 
-                if (hit.gameObject.name == "Vent" && screwdriiver)
+                if (hit.gameObject.name == "Vent")
                 {
-                    hit.gameObject.SendMessage("ChangePosPlayer");
+                    if (screwdriiver)
+                    {
+                        hit.gameObject.SendMessage("ChangePosPlayer");
+                    }
+                    else
+                    {
+                        SceneDirector.SendMessage("Text", 7);
+                    }
                 }
             }
+        }
+        else
+        {
+            SceneDirector.SendMessage("Look_Up", 2);
         }
 
         if(hit.gameObject.tag == "Goal")

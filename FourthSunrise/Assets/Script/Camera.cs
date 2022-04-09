@@ -4,20 +4,28 @@ using UnityEngine;
 
 public class Camera : MonoBehaviour
 {
+    [SerializeField] bool subCam;
     [SerializeField] private Transform cameraPos;
+    [SerializeField] public Transform target;
+    [SerializeField] public Vector3 offset;
 
     private GameObject player;
 
     void Start()
     {
         player = GameObject.Find("Player");
-        Reset_Pos();
+        if(subCam) Reset_Pos();
     }
 
     void Update()
     {
         //èÌÇ…PlayerÇå¸Ç´ë±ÇØÇÈ
         transform.LookAt(player.transform);
+        if(subCam)
+        {
+            this.transform.position = target.position + offset;
+            this.transform.rotation = Quaternion.Euler(90, 0, 0);
+        }
     }
 
     /// <summary>

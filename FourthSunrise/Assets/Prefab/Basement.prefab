@@ -32654,6 +32654,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Range
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Intensity
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_SpotAngle
+      value: 95
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Lightmapping
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_InnerSpotAngle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7421140298898592602, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
+      propertyPath: m_Shadows.m_Type
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7421140298904423934, guid: 901b55cf704ac3247a17cabf66271847, type: 3}
       propertyPath: m_IsActive
       value: 1

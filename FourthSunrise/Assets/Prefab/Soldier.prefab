@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6262788651814359228}
   - component: {fileID: 6262788651814359231}
+  - component: {fileID: 2747028584829283568}
   m_Layer: 0
   m_Name: SearchArea
   m_TagString: Untagged
@@ -41,10 +42,24 @@ SphereCollider:
   m_GameObject: {fileID: 6262788651814359229}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Radius: 6
   m_Center: {x: 4, y: 0, z: 0}
+--- !u!136 &2747028584829283568
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6262788651814359229}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 3
+  m_Height: 26.5
+  m_Direction: 0
+  m_Center: {x: 10.7, y: 0, z: 0}
 --- !u!1 &6262788651957814919
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,8 +103,8 @@ Light:
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 0.8745098, a: 1}
-  m_Intensity: 2
+  m_Color: {r: 1, g: 0.29622638, b: 0.29622638, a: 0.7019608}
+  m_Intensity: 10
   m_Range: 50
   m_SpotAngle: 80
   m_InnerSpotAngle: 1
@@ -131,7 +146,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
+  m_BounceIntensity: 2
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
