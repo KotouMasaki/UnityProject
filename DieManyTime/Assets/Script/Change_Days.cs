@@ -1,11 +1,11 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Change_Days : MonoBehaviour
 {
-    private GameObject score_object; // TextƒIƒuƒWƒFƒNƒg
+    private GameObject score_object; // Textã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆ
 
     void Start()
     {
@@ -13,9 +13,9 @@ public class Change_Days : MonoBehaviour
     }
     void Rewrite(int days)
     {
-        // ƒIƒuƒWƒFƒNƒg‚©‚çTextƒRƒ“ƒ|[ƒlƒ“ƒg‚ğæ“¾
+        // ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã‹ã‚‰Textã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’å–å¾—
         Text score_text = score_object.GetComponent<Text>();
-        // ƒeƒLƒXƒg‚Ì•\¦‚ğ“ü‚ê‘Ö‚¦‚é
-        score_text.text = "‚ ‚Æ" + days + "“ú";
+        // ãƒ†ã‚­ã‚¹ãƒˆã®è¡¨ç¤ºã‚’å…¥ã‚Œæ›¿ãˆã‚‹
+        score_text.text = "ã‚ã¨" + days + "æ—¥";
     }
 }

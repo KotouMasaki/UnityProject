@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -19,7 +19,7 @@ public class Camera : MonoBehaviour
 
     void Update()
     {
-        //í‚ÉPlayer‚ğŒü‚«‘±‚¯‚é
+        //å¸¸ã«Playerã‚’å‘ãç¶šã‘ã‚‹
         transform.LookAt(player.transform);
         if(subCam)
         {
@@ -29,7 +29,7 @@ public class Camera : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒJƒƒ‰‚ğŠJn’n“_‚É–ß‚·
+    /// ã‚«ãƒ¡ãƒ©ã‚’é–‹å§‹åœ°ç‚¹ã«æˆ»ã™
     /// </summary>
     void Reset_Pos()
     {

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -42,7 +42,7 @@ public class Move : MonoBehaviour
     private Vector3 moveDirection;
 
     /// <summary>
-    /// ƒRƒ“ƒ||ƒlƒ“ƒg‚ğæ“¾‚·‚é
+    /// ã‚³ãƒ³ãƒï¼ãƒãƒ³ãƒˆã‚’å–å¾—ã™ã‚‹
     /// </summary>
     void Start()
     {
@@ -52,7 +52,7 @@ public class Move : MonoBehaviour
     }
 
     /// <summary>
-    /// ˆÚ“®—p‚ÌƒNƒ‰ƒX
+    /// ç§»å‹•ç”¨ã®ã‚¯ãƒ©ã‚¹
     /// </summary>
     void Update()
     {
@@ -104,7 +104,7 @@ public class Move : MonoBehaviour
     }
 
     /// <summary>
-    /// CharacterController—p‚Ì“–‚½‚è”»’è‚ÌƒNƒ‰ƒX
+    /// CharacterControllerç”¨ã®å½“ãŸã‚Šåˆ¤å®šã®ã‚¯ãƒ©ã‚¹
     /// </summary>
     /// <param name="hit">/// </param>
     void OnControllerColliderHit(ControllerColliderHit hit)
@@ -127,11 +127,11 @@ public class Move : MonoBehaviour
         }
         if (hit.gameObject.tag == "Door_A")
         {
-            //@CharacterControllerƒRƒ“ƒ|[ƒlƒ“ƒg‚ğˆê’U–³Œø‰»‚·‚é
+            //ã€€CharacterControllerã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ä¸€æ—¦ç„¡åŠ¹åŒ–ã™ã‚‹
             controller.enabled = false;
-            //@Player‚ÌˆÊ’u‚ğ•ÏX‚·‚é
+            //ã€€Playerã®ä½ç½®ã‚’å¤‰æ›´ã™ã‚‹
             this.transform.position = point_A.transform.position;
-            //@CharacterControllerƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ—LŒø‰»‚·‚é
+            //ã€€CharacterControllerã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
             controller.enabled = true;
             Destroy(door_a);
             Instantiate(door_b, new Vector3(-1.15625f, 0.125f, 120.0f), Quaternion.identity);

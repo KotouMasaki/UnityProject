@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,7 +9,7 @@ public class Door_Open : MonoBehaviour
     [SerializeField] private GameObject lv4_Door;
 
     /// <summary>
-    /// ƒhƒA‚ğŠJ•Â‚·‚é
+    /// ãƒ‰ã‚¢ã‚’é–‹é–‰ã™ã‚‹
     /// </summary>
     void control_panel()
     {

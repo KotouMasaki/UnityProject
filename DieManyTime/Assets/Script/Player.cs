@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,8 +7,8 @@ public class Player : MonoBehaviour
 {
     [SerializeField] private float walkSpeed;
     [SerializeField] private float runSpeed;
-    [SerializeField] private float rotateSpeed;    //‰ñ“]‘¬“x
-    [SerializeField] private float gravity;       //d—Í‚Ì‘å‚«‚³
+    [SerializeField] private float rotateSpeed;    //å›è»¢é€Ÿåº¦
+    [SerializeField] private float gravity;       //é‡åŠ›ã®å¤§ãã•
     [SerializeField] private GameObject WhiteLight;
     [SerializeField] private Transform StartCamPos;
     [SerializeField] private GameObject FlashlightObj;
@@ -49,8 +49,8 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        h = Input.GetAxis("Horizontal");    //¶‰E–îˆóƒL[‚Ì’l(-1.0~1.0)
-        v = Input.GetAxis("Vertical");      //ã‰º–îˆóƒL[‚Ì’l(-1.0~1.0)
+        h = Input.GetAxis("Horizontal");    //å·¦å³çŸ¢å°ã‚­ãƒ¼ã®å€¤(-1.0~1.0)
+        v = Input.GetAxis("Vertical");      //ä¸Šä¸‹çŸ¢å°ã‚­ãƒ¼ã®å€¤(-1.0~1.0)
         
 
         if (controller.isGrounded)
@@ -79,7 +79,7 @@ public class Player : MonoBehaviour
                 animator.SetFloat("Speed", 0f);
             }
 
-            //‰ù’†“d“”‚ğ‚Â‚¯‚é
+            //æ‡ä¸­é›»ç¯ã‚’ã¤ã‘ã‚‹
             if(Input.GetKeyDown(KeyCode.Q) && flashlight)
             {
                 lightCount++;
@@ -96,7 +96,7 @@ public class Player : MonoBehaviour
                 }
             }
 
-            //ƒ}ƒbƒv‚ğŠJ‚­
+            //ãƒãƒƒãƒ—ã‚’é–‹ã
             if(Input.GetKeyDown(KeyCode.Tab))
             {
                 SceneDirector.SendMessage("Show_Map");
@@ -108,17 +108,17 @@ public class Player : MonoBehaviour
     }
 
     /// <summary>
-    /// êŠ‚ğ•Ï‚¦‚é‚Ég‚¤ŠÖ”
+    /// å ´æ‰€ã‚’å¤‰ãˆã‚‹æ™‚ã«ä½¿ã†é–¢æ•°
     /// </summary>
     /// <param name="ChangePos"></param>
     void Warp(Transform ChangePos)
     {
         SceneDirector.SendMessage("BackFadeOut");
-        //@CharacterControllerƒRƒ“ƒ|[ƒlƒ“ƒg‚ğˆê’U–³Œø‰»‚·‚é
+        //ã€€CharacterControllerã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’ä¸€æ—¦ç„¡åŠ¹åŒ–ã™ã‚‹
         controller.enabled = false;
-        //@Player‚ÌˆÊ’u‚ğ•ÏX‚·‚é
+        //ã€€Playerã®ä½ç½®ã‚’å¤‰æ›´ã™ã‚‹
         this.transform.position = ChangePos.position;
-        //@CharacterControllerƒRƒ“ƒ|[ƒlƒ“ƒg‚ğ—LŒø‰»‚·‚é
+        //ã€€CharacterControllerã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆã‚’æœ‰åŠ¹åŒ–ã™ã‚‹
         controller.enabled = true;
         SceneDirector.SendMessage("Returned");
         SceneDirector.SendMessage("BackFadeIn");
@@ -137,7 +137,7 @@ public class Player : MonoBehaviour
                     screwdriiver = true;
                     FlashlightObj.SetActive(true);
                     SceneDirector.SendMessage("Text", 1);
-                    Debug.Log("‰ù’†“d“”‚Æƒ}ƒCƒiƒXƒhƒ‰ƒCƒo[‚ğè‚É“ü‚ê‚½");
+                    Debug.Log("æ‡ä¸­é›»ç¯ã¨ãƒã‚¤ãƒŠã‚¹ãƒ‰ãƒ©ã‚¤ãƒãƒ¼ã‚’æ‰‹ã«å…¥ã‚ŒãŸ");
                 }
 
                 if (hit.gameObject.name == "Map")
@@ -145,7 +145,7 @@ public class Player : MonoBehaviour
                     hit.gameObject.SetActive(false);
                     SceneDirector.SendMessage("Flag_Map");
                     SceneDirector.SendMessage("Text", 5);
-                    Debug.Log("’n}‚ğè‚É“ü‚ê‚½");
+                    Debug.Log("åœ°å›³ã‚’æ‰‹ã«å…¥ã‚ŒãŸ");
                 }
 
                 if (hit.gameObject.name == "Key_Lv1")
@@ -153,7 +153,7 @@ public class Player : MonoBehaviour
                     hit.gameObject.SetActive(false);
                     Key_Lv1 = true;
                     SceneDirector.SendMessage("Text", 2);
-                    Debug.Log("ƒJ[ƒhƒL[Lv1‚ğè‚É“ü‚ê‚½");
+                    Debug.Log("ã‚«ãƒ¼ãƒ‰ã‚­ãƒ¼Lv1ã‚’æ‰‹ã«å…¥ã‚ŒãŸ");
                 }
 
                 if (hit.gameObject.name == "Key_Lv2")
@@ -161,7 +161,7 @@ public class Player : MonoBehaviour
                     hit.gameObject.SetActive(false);
                     Key_Lv2 = true;
                     SceneDirector.SendMessage("Text", 3);
-                    Debug.Log("ƒJ[ƒhƒL[Lv2‚ğè‚É“ü‚ê‚½");
+                    Debug.Log("ã‚«ãƒ¼ãƒ‰ã‚­ãƒ¼Lv2ã‚’æ‰‹ã«å…¥ã‚ŒãŸ");
                 }
 
                 if (hit.gameObject.name == "Key_Lv3")
@@ -169,7 +169,7 @@ public class Player : MonoBehaviour
                     hit.gameObject.SetActive(false);
                     Key_Lv3 = true;
                     SceneDirector.SendMessage("Text", 4);
-                    Debug.Log("ƒJ[ƒhƒL[Lv3‚ğè‚É“ü‚ê‚½");
+                    Debug.Log("ã‚«ãƒ¼ãƒ‰ã‚­ãƒ¼Lv3ã‚’æ‰‹ã«å…¥ã‚ŒãŸ");
                 }
 
                 if (hit.gameObject.name == "ControlPanel")
@@ -177,7 +177,7 @@ public class Player : MonoBehaviour
                     hit.gameObject.SendMessage("control_panel");
                     hit.gameObject.SetActive(false);
                     SceneDirector.SendMessage("Text", 6);
-                    Debug.Log("Lv.4‚Ì”à‚ªŠJ‚¢‚½‚æ‚¤‚¾");
+                    Debug.Log("Lv.4ã®æ‰‰ãŒé–‹ã„ãŸã‚ˆã†ã ");
                 }
             }
         }

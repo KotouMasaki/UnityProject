@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,7 +11,7 @@ public class ButtonListener : MonoBehaviour
     [SerializeField] private GameObject UI_image;
 
     /// <summary>
-    /// ƒ{ƒ^ƒ“‚ğ‰Ÿ‚µ‚½‚Æ‚«‚ÌŒÄ‚Î‚ê‚éŠÖ”
+    /// ãƒœã‚¿ãƒ³ã‚’æŠ¼ã—ãŸã¨ãã®å‘¼ã°ã‚Œã‚‹é–¢æ•°
     /// </summary>
     public void OnClick()
     {
@@ -25,7 +25,7 @@ public class ButtonListener : MonoBehaviour
         }
         if(quitGame)
         {
-
+            Debug.Log("hi");
 #if UNITY_EDITOR
     UnityEditor.EditorApplication.isPlaying = false;
 #else

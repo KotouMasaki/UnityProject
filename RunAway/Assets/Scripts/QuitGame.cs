@@ -1,10 +1,10 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class QuitGame : MonoBehaviour
 {
-    //ƒ{ƒ^ƒ“‚ğ‰Ÿ‚·‚ÆƒQ[ƒ€‚ªI—¹‚·‚é
+    //ãƒœã‚¿ãƒ³ã‚’æŠ¼ã™ã¨ã‚²ãƒ¼ãƒ ãŒçµ‚äº†ã™ã‚‹
     public void OnClick()
     {
         #if UNITY_EDITOR

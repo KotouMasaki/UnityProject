@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -20,7 +20,7 @@ public class ChangeScene : MonoBehaviour
     }
 
     /// <summary>
-    /// ‰æ–Ê‘JˆÚ‚ğ‚·‚éƒ{ƒ^ƒ“—p‚ÌŠÖ”
+    /// ç”»é¢é·ç§»ã‚’ã™ã‚‹ãƒœã‚¿ãƒ³ç”¨ã®é–¢æ•°
     /// </summary>
     public void OnClickChangeScene()
     {
@@ -28,7 +28,7 @@ public class ChangeScene : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhƒAƒEƒg‰‰o
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ¼”å‡º
     /// </summary>
     /// <returns></returns>
     IEnumerator FadeOut()
@@ -46,7 +46,7 @@ public class ChangeScene : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhƒCƒ“‰‰o
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³æ¼”å‡º
     /// </summary>
     /// <returns></returns>
     IEnumerator FadeIn()

@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEditor;
@@ -7,33 +7,40 @@ public class PlayerSearch : MonoBehaviour
 {
     [SerializeField] private EnemyMove enemyMove;
     [SerializeField] private LayerMask obstacleLayer;
+    [SerializeField] private AudioSource audioSource;
+    [SerializeField] private AudioClip se_alarm;
 
+    private bool call;
     private GameObject SceneDirector;
 
     void Start()
     {
         enemyMove = GetComponentInParent<EnemyMove>();
         SceneDirector = GameObject.Find("SceneDirector");
+        call = true;
     }
 
     void OnTriggerStay(Collider col)
     {
-        //@ƒvƒŒƒCƒ„[ƒLƒƒƒ‰ƒNƒ^[‚ğ”­Œ©
+        //ã€€ãƒ—ãƒ¬ã‚¤ãƒ¤ãƒ¼ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã‚’ç™ºè¦‹
         if (col.tag == "Player")
         {
-            //@“GƒLƒƒƒ‰ƒNƒ^[‚Ìó‘Ô‚ğæ“¾
+            //ã€€æ•µã‚­ãƒ£ãƒ©ã‚¯ã‚¿ãƒ¼ã®çŠ¶æ…‹ã‚’å–å¾—
             EnemyMove.EnemyState state = enemyMove.GetState();
 
             Debug.DrawLine(transform.position + Vector3.up, col.transform.position + Vector3.up, Color.blue);
 
-            //@ƒT[ƒ`‚·‚éŠp“x“à‚¾‚Á‚½‚ç”­Œ©
+            //ã€€ã‚µãƒ¼ãƒã™ã‚‹è§’åº¦å†…ã ã£ãŸã‚‰ç™ºè¦‹
             if ((state == EnemyMove.EnemyState.Walk)
                 && !Physics.Linecast(transform.position + Vector3.up, col.transform.position + Vector3.up, obstacleLayer))
             {
+                if(call) audioSource.PlayOneShot(se_alarm);
+                call = false;
                 enemyMove.SetState(EnemyMove.EnemyState.Chase, col.transform);
             }
             else
             {
+                call = true;
                 enemyMove.SetState(EnemyMove.EnemyState.Walk);
             }
             Vector3 diff = transform.position - col.transform.position;
@@ -51,7 +58,7 @@ public class PlayerSearch : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            Debug.Log("Œ©¸‚¤");
+            Debug.Log("è¦‹å¤±ã†");
             enemyMove.SetState(EnemyMove.EnemyState.Walk);
         }
     }

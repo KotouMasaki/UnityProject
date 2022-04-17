@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -6,7 +6,7 @@ public class ChangeColor : MonoBehaviour
 {
     void Start()
     {
-        //ƒIƒuƒWƒFƒNƒg‚ÌF‚ğÔ‚É•ÏX‚·‚é
+        //ã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®è‰²ã‚’èµ¤ã«å¤‰æ›´ã™ã‚‹
         GetComponent<Renderer>().material.color = Color.green;
     }
 }

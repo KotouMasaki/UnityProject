@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -16,7 +16,7 @@ public class EnemyMove : MonoBehaviour
     [SerializeField]
     private float deleteTime;
 
-    //¶‰E‚ÉˆÚ“®‚·‚é
+    //å·¦å³ã«ç§»å‹•ã™ã‚‹
     void Update()
     {
         second = second + Time.deltaTime;

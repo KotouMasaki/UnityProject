@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -33,7 +33,7 @@ public class BossController : MonoBehaviour
 
     void Update()
     {
-        //Player‚ªˆê’è‚Ì’n“_‚ğ‰z‚¦‚é‚ÆBoss‚ÌHP•\¦‚ÆˆÚ“®‚ğŠJn‚·‚é
+        //PlayerãŒä¸€å®šã®åœ°ç‚¹ã‚’è¶Šãˆã‚‹ã¨Bossã®HPè¡¨ç¤ºã¨ç§»å‹•ã‚’é–‹å§‹ã™ã‚‹
         if(player.position.z >= 1500)
         {
             count++;
@@ -51,10 +51,10 @@ public class BossController : MonoBehaviour
         }
     }
 
-    //ColliderƒIƒuƒWƒFƒNƒg‚ÌIsTrigger‚Éƒ`ƒFƒbƒN“ü‚ê‚é‚±‚ÆB
+    //Colliderã‚ªãƒ–ã‚¸ã‚§ã‚¯ãƒˆã®IsTriggerã«ãƒã‚§ãƒƒã‚¯å…¥ã‚Œã‚‹ã“ã¨ã€‚
     private void OnTriggerEnter(Collider collider)
     {
-        // ƒ_ƒ[ƒW’†‚Íˆ—ƒXƒLƒbƒv
+        // ãƒ€ãƒ¡ãƒ¼ã‚¸ä¸­ã¯å‡¦ç†ã‚¹ã‚­ãƒƒãƒ—
         if (isDamage)
         {
             return;
@@ -64,12 +64,12 @@ public class BossController : MonoBehaviour
             isDamage = true;
             int damage = 5;
 
-            //Œ»İ‚ÌHP‚©‚çƒ_ƒ[ƒW‚ğˆø‚­
+            //ç¾åœ¨ã®HPã‹ã‚‰ãƒ€ãƒ¡ãƒ¼ã‚¸ã‚’å¼•ã
             currentHp = currentHp - damage;
 
-            //Å‘åHP‚É‚¨‚¯‚éŒ»İ‚ÌHP‚ğSlider‚É”½‰fB
-            //int“¯m‚ÌŠ„‚èZ‚Í¬”“_ˆÈ‰º‚Í0‚É‚È‚é‚Ì‚ÅA
-            //(float)‚ğ‚Â‚¯‚Äfloat‚Ì•Ï”‚Æ‚µ‚ÄU•‘‚í‚¹‚éB
+            //æœ€å¤§HPã«ãŠã‘ã‚‹ç¾åœ¨ã®HPã‚’Sliderã«åæ˜ ã€‚
+            //intåŒå£«ã®å‰²ã‚Šç®—ã¯å°æ•°ç‚¹ä»¥ä¸‹ã¯0ã«ãªã‚‹ã®ã§ã€
+            //(float)ã‚’ã¤ã‘ã¦floatã®å¤‰æ•°ã¨ã—ã¦æŒ¯èˆã‚ã›ã‚‹ã€‚
             slider.value = (float)currentHp / (float)maxHp;
 
             StartCoroutine(OnDamage());
@@ -86,7 +86,7 @@ public class BossController : MonoBehaviour
 
         yield return new WaitForSeconds(0.5f);
 
-        // ’Êíó‘Ô‚É–ß‚·
+        // é€šå¸¸çŠ¶æ…‹ã«æˆ»ã™
         isDamage = false;
     }
 }

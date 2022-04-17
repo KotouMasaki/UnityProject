@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -22,7 +22,7 @@ public class ChangeCamera : MonoBehaviour
     {
         if (col.tag == "Player")
         {
-            //ƒJƒƒ‰‚ÌˆÊ’u‚ğ•Ï‚¦‚é
+            //ã‚«ãƒ¡ãƒ©ã®ä½ç½®ã‚’å¤‰ãˆã‚‹
             playCamera.transform.position = cameraPos.position;
             if (Map1 == null && Map2 == null && Map3 == null)
             {
@@ -30,7 +30,7 @@ public class ChangeCamera : MonoBehaviour
             }
             else
             {
-                //ƒ}ƒbƒv‚Ì•\¦‚ğ•ÏX‚·‚é
+                //ãƒãƒƒãƒ—ã®è¡¨ç¤ºã‚’å¤‰æ›´ã™ã‚‹
                 Map1.SetActive(true);
                 Map2.SetActive(true);
                 Map3.SetActive(false);

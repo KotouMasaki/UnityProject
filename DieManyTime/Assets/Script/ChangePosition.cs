@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -28,7 +28,7 @@ public class ChangePosition : MonoBehaviour
 
     }
     /// <summary>
-    /// Player‚ÌêŠ‚ğ•Ï‚¦‚é‚Éƒ}ƒbƒv‚ğXV‚·‚éŠÖ”
+    /// Playerã®å ´æ‰€ã‚’å¤‰ãˆã‚‹æ™‚ã«ãƒãƒƒãƒ—ã‚’æ›´æ–°ã™ã‚‹é–¢æ•°
     /// </summary>
     void ChangePosPlayer()
     {

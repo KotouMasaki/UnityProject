@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -51,7 +51,7 @@ public class EnemySpawn : MonoBehaviour
 
     public void Spawn()
     {
-        //“G‚ğ¶¬‚·‚éêŠ‚ğæ“¾
+        //æ•µã‚’ç”Ÿæˆã™ã‚‹å ´æ‰€ã‚’å–å¾—
         Vector3 laserPosition = firingPoint.transform.position;
         GameObject Enemys = Instantiate(Enemy, this.transform.position, this.transform.rotation);
     }

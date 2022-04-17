@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -55,7 +55,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhƒAƒEƒg‰‰o
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¢ã‚¦ãƒˆæ¼”å‡º
     /// </summary>
     void BackFadeOut()
     {
@@ -63,7 +63,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒtƒF[ƒhƒCƒ“‰‰o
+    /// ãƒ•ã‚§ãƒ¼ãƒ‰ã‚¤ãƒ³æ¼”å‡º
     /// </summary>
     void BackFadeIn()
     {
@@ -71,9 +71,9 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒAƒCƒeƒ€“üè‚Ì‰‰o
+    /// ã‚¢ã‚¤ãƒ†ãƒ å…¥æ‰‹æ™‚ã®æ¼”å‡º
     /// </summary>
-    /// <param name="num">switch•¶‚Ì‚½‚ß‚Ìˆø”</param>
+    /// <param name="num">switchæ–‡ã®ãŸã‚ã®å¼•æ•°</param>
     void Text(int num)
     {
         audioSource.PlayOneShot(clip2);
@@ -115,7 +115,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ}ƒbƒv•\¦A”ñ•\¦‚ÌŠÖ”
+    /// ãƒãƒƒãƒ—è¡¨ç¤ºã€éè¡¨ç¤ºã®é–¢æ•°
     /// </summary>
     void Show_Map()
     {
@@ -148,7 +148,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒ}ƒbƒv‚ğ“üè‚µ‚½‚Ìƒtƒ‰ƒO
+    /// ãƒãƒƒãƒ—ã‚’å…¥æ‰‹ã—ãŸæ™‚ã®ãƒ•ãƒ©ã‚°
     /// </summary>
     void Flag_Map()
     {
@@ -157,7 +157,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// “G‚É•ß‚Ü‚Á‚½‚Ì‰‰o‚ğŒÄ‚Ño‚·ŠÖ”
+    /// æ•µã«æ•ã¾ã£ãŸæ™‚ã®æ¼”å‡ºã‚’å‘¼ã³å‡ºã™é–¢æ•°
     /// </summary>
     void Get_caught()
     {
@@ -173,7 +173,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// •ß‚Ü‚Á‚½‚Ì‰‰o‚ª‰½‰ñ‚àŒÄ‚Î‚ê‚È‚¢‚æ‚¤‚É‚·‚é
+    /// æ•ã¾ã£ãŸæ™‚ã®æ¼”å‡ºãŒä½•å›ã‚‚å‘¼ã°ã‚Œãªã„ã‚ˆã†ã«ã™ã‚‹
     /// </summary>
     void Returned()
     {
@@ -188,7 +188,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// ƒQ[ƒ€ŠJn‚Ì‰‰o‚ÌƒRƒ‹[ƒ`ƒ“ŠÖ”
+    /// ã‚²ãƒ¼ãƒ é–‹å§‹æ™‚ã®æ¼”å‡ºã®ã‚³ãƒ«ãƒ¼ãƒãƒ³é–¢æ•°
     /// </summary>
     /// <returns></returns>
     IEnumerator Opening()
@@ -203,7 +203,7 @@ public class SceneDirector : MonoBehaviour
     }
 
     /// <summary>
-    /// •ß‚Ü‚Á‚½‚Ì‰‰o‚ÌƒRƒ‹[ƒ`ƒ“ŠÖ”
+    /// æ•ã¾ã£ãŸæ™‚ã®æ¼”å‡ºã®ã‚³ãƒ«ãƒ¼ãƒãƒ³é–¢æ•°
     /// </summary>
     /// <returns></returns>
     IEnumerator NextDay()

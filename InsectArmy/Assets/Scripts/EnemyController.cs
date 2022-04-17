@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,7 +11,7 @@ public class EnemyController : MonoBehaviour
         PlayerObj = GameObject.Find("Player");
     }
 
-    //’e‚ª“–‚½‚Á‚½Player‚ÌHP‚Ì‰ñ•œ‚ÆEnemy‚Ìíœ
+    //å¼¾ãŒå½“ãŸã£ãŸæ™‚Playerã®HPã®å›å¾©ã¨Enemyã®å‰Šé™¤
     private void OnTriggerEnter(Collider collider)
     {
         if(collider.gameObject.tag == "Player")

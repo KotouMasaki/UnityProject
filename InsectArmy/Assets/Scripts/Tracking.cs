@@ -1,4 +1,4 @@
-using System.Collections;
+ï»¿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -17,7 +17,7 @@ public class Tracking : MonoBehaviour
         EnemyPos = this.transform.position;
     }
 
-    //Player‚ÌÀ•W‚ğ‚ğæ“¾‚µ’Ç”ö‚·‚é‚æ‚¤‚É‚·‚é
+    //Playerã®åº§æ¨™ã‚’ã‚’å–å¾—ã—è¿½å°¾ã™ã‚‹ã‚ˆã†ã«ã™ã‚‹
     void Update()
     {
         var acceleration = Vector3.zero;
