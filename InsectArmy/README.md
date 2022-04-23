@@ -24,11 +24,7 @@ https://youtu.be/ge8VJbyrMhc
 
 # Usage
 
-Unityでビルドして下さい
-
-# Note
-
-このアプリのレイアウトはOPPO renoA で実験していたのでそれ以外のスマートフォンではレイアウトが崩れてしまう場合があります
+Unityでビルドして実行して下さい
 
 # Author
 
