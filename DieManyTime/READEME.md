@@ -1,4 +1,4 @@
-# DieManyTime
+# Die Many Time
 
 Unityで制作した３作目のゲームを公開しているリポジトリです。
 
