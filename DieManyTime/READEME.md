@@ -14,25 +14,23 @@ Unityで制作した３作目のゲームを公開しているリポジトリで
 
 #### プレイ映像
 
-
+https://youtu.be/L1MCjn3XtoQ
 
 # Requirement
 
 必要なライブラリ
 
-* libs/activation.jar
-* libs/additionnal.jar
-* libs/mail.jar
+* DOTween
 
 # Installation
 
 下のリンクからライブラリをダウンロードする
 
-https://code.google.com/archive/p/javamail-android/downloads
+https://assetstore.unity.com/packages/tools/animation/dotween-hotween-v2-27676?locale=ja-JP
 
 # Usage
 
-Android Studioで実行して下さい
+Unityでビルドして下さい
 
 # Note
 
@@ -41,7 +39,7 @@ Android Studioで実行して下さい
 # Author
 
 * 作成者    古藤
-* 所属      九州デザイナー学院
+* 所属      九州デザイナー学院ゲーム・CG学科プログラム専攻
 
 # License
 
