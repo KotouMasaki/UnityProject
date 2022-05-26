@@ -34,4 +34,4 @@ Unityでビルドして実行して下さい
 
 # License
 
-"ContactBook" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"RunAway" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
