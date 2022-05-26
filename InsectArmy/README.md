@@ -33,4 +33,4 @@ Unityでビルドして実行して下さい
 
 # License
 
-"ContactBook" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
+"InsectArmy" is under [MIT license](https://en.wikipedia.org/wiki/MIT_License).
